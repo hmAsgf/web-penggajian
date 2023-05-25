@@ -13,7 +13,7 @@
     $admin = new Admin();
     ?>
 
-    <h1>INI HALAMAN LOGIN</h1>
+    <h1>INI HALAMAN LOGIN YOI</h1>
     <br>
     <br>
 
