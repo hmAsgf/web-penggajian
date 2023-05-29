@@ -3,7 +3,7 @@
 class Koneksi
 {
     private $hostname = 'localhost';
-    private $database = 'web-penggajian';
+    private $database = 'penggajian';
     private $username = 'root';
     private $password = '';
 
