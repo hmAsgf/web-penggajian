@@ -7,7 +7,7 @@
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
-	<link rel="stylesheet" href="../views/style_navbar.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 
 	<title>Dashboard</title>
 </head>
@@ -138,97 +138,66 @@
                             </thead>
                         </table>
                 </div>
+                <br>
+                <div class="absen">
+                    <div class="head-absen">
+                        <h3>Annual Leaves</h3>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>5</th>
+                                <th>&emsp;&emsp;&emsp;&emsp;&emsp;15</th>
+                                <th>&emsp;&emsp;&emsp;20</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mount</th>
+                                <th>&emsp;&emsp;Day</th>
+                                <th>&emsp;&emsp;Total</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <br>
+                <div class="pendapatan">
+                        <div class="head">
+                            <h3>Claim</h3>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Bussines Trip</th>
+                                </tr>
+                                <tr>
+                                    <th>$ 115.30</th>
+                                </tr>
+                                <tr>
+                                    <th>Not Sumbcard</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="payslip">
+                        <h3>Payslip</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>2023</th>
+                                </tr>
+                                <tr>
+                                    <th>31 Dec</th>
+                                </tr>
+                                <tr>
+                                    <th>Hours Payslip</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
             </div>
-
-			<div class="table-data">
-				<div class="order">
-					<div class="head">
-						<h3>Recent Orders</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<table>
-						<thead>
-							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="todo">
-					<div class="head">
-						<h3>Todos</h3>
-						<i class='bx bx-plus' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-					</ul>
-				</div>
-			</div>
 		</main>
 		<!-- MAIN -->
 	</section>
