@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="../css/style_login.css">
 </head>
 <body>
+<?php
+require_once "../controllers/loginController.php";
+$loginC = new loginController();
+?>
     <div class="card">
         <div class="card-content">
             <div class="card-title">
@@ -17,11 +21,11 @@
                 <h4>Sign in for work absence</h4>
             </div>
             <form method="post" class="form">
-                <label class="user" style="padding-top: 13px;">Username</label>
+                <label class="user" style="padding-top: 13px;">Email</label>
                 <input id="user-email" class="form-content" type="email" name="email" autocomplete="on" required/>
                 <div class="form-border"></div>
                 
-                <label class="user-password" style="padding-top: 13px;">&nbsp; Password</label>
+                <label class="user-password" style="padding-top: 13px;">Password</label>
                 <input id="user-password" class="form-content" type="password" name="password" required/>
                 <div class="form-border"></div>
                     <a href="">
@@ -31,5 +35,9 @@
             </form>
         </div>
     </div>
+
+    <?php
+    $loginC->login();
+    ?>
 </body>
 </html>
