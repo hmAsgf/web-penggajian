@@ -11,7 +11,7 @@
     <div class="card">
         <div class="card-content">
             <div class="card-title">
-                <h3>KARYAWAN</h3>
+                <h3>ADMIN</h3>
             </div>
             <div class="card-title2">
                 <h4>Sign in for work absence</h4>
