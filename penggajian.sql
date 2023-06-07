@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2023 at 05:51 PM
+-- Generation Time: Jun 07, 2023 at 04:40 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `web-penggajian`
+-- Database: `penggajian`
 --
 
 -- --------------------------------------------------------
@@ -34,6 +34,14 @@ CREATE TABLE `absensi` (
   `jam_datang` time NOT NULL,
   `jam_pulang` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `absensi`
+--
+
+INSERT INTO `absensi` (`id`, `nip`, `tanggal`, `jam_datang`, `jam_pulang`) VALUES
+(1, 10000, '2023-01-02', '07:28:59', '14:05:28'),
+(2, 10000, '2023-01-03', '07:30:21', '14:02:37');
 
 -- --------------------------------------------------------
 
@@ -88,7 +96,10 @@ CREATE TABLE `jabatan` (
 
 INSERT INTO `jabatan` (`id`, `nama`, `gaji_pokok`, `pajak`) VALUES
 (1, 'kasir', 3000000, 150000),
-(2, 'pelayan', 2500000, 125000);
+(2, 'pelayan', 2500000, 125000),
+(3, 'chef', 5500000, 275000),
+(4, 'supervisor', 7000000, 350000),
+(5, 'manajer', 10000000, 500000);
 
 --
 -- Triggers `jabatan`
@@ -133,7 +144,7 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`nip`, `nama`, `password`, `nomor_telepon`, `email`, `alamat`, `id_jabatan`) VALUES
-(10000, 'Manusia', 'tes123', '081233211230', 'manusia@gmail.com', 'Surabaya', 1);
+(10000, 'Budi Doremi', 'dibudi123', '081233211230', 'budi99@gmail.com', 'Surabaya', 1);
 
 -- --------------------------------------------------------
 
@@ -152,6 +163,15 @@ CREATE TABLE `penggajian` (
   `gaji_lembur` int(11) NOT NULL,
   `gaji_bersih` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `penggajian`
+--
+
+INSERT INTO `penggajian` (`id`, `NIP`, `id_admin`, `tanggal`, `gaji_pokok`, `pajak`, `potongan`, `gaji_lembur`, `gaji_bersih`) VALUES
+(1, 10000, 1, '2023-01-31', 3000000, 150000, 0, 0, 2850000),
+(2, 10000, 1, '2023-02-28', 3000000, 150000, 100000, 0, 2750000),
+(3, 10000, 1, '2023-03-31', 3000000, 150000, 0, 60000, 2910000);
 
 -- --------------------------------------------------------
 
@@ -218,7 +238,7 @@ ALTER TABLE `potongan`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -230,7 +250,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `lembur`
@@ -242,7 +262,7 @@ ALTER TABLE `lembur`
 -- AUTO_INCREMENT for table `penggajian`
 --
 ALTER TABLE `penggajian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `potongan`

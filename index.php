@@ -1,2 +1,2 @@
 <?php
-require "views/login.view.php";
+header('Location: views/login_karyawan.php');

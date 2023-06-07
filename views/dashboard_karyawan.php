@@ -10,8 +10,14 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 <title>Dashboard</title>
+
 </head>
 <body>
+<?php
+require_once "../controllers/loginController.php";
+$loginC = new loginController();
+$loginC->cekAuth();
+?>
 
 
 <!-- SIDEBAR -->
@@ -48,7 +54,7 @@
             </a>
         </li>
         <li>
-            <a href="login_karyawan.php" class="logout">
+            <a href="logout.php" class="logout">
                 <i class='bx bxs-log-out-circle' ></i>
                 <span class="text">Logout</span>
             </a>
