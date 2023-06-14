@@ -296,13 +296,29 @@ body {
 }
 
 #content .content-input .cards{
-    padding: 200px 400px;
+    padding: 100px 300px;
     align-items: center;
 }
 
-#content .content-input .cards .card {
+#content .content-input .cards2{
+    padding: 500px 300px;
+    align-items: center;
+}
+
+#content .content-input .cards .card .box{
     width: 500px;
     height: 300px;
+    background:#751AE8;
+	border-radius: 5px;
+	align-items: center;
+    display: flex;
+	justify-content: space-around;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+}
+
+#content .content-input .cards .card .box{
+    width: 500px;
+    height: 500px;
     background:#751AE8;
 	border-radius: 5px;
 	align-items: center;
@@ -316,7 +332,6 @@ table label{
 }
 
 table input{
-	display: flex;
 	background: #ffff;
 	border-radius: 5px;
 }

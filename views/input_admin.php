@@ -47,7 +47,7 @@
       </a>
     </li>
     <li>
-      <a href="#" class="logout">
+      <a href="login_admin.php" class="logout">
         <i class='bx bxs-log-out-circle' ></i>
         <span class="text">Logout</span>
       </a>
@@ -84,44 +84,55 @@
 
     <!-- MAIN -->
     <div class="content-input">
-        <div class="cards">
+      <div class="cards">
             <div class="card">
-                <div class="box">
-                    <table>
-                        <tr>
-                            <td><label>Nama</label></td>
-                            <td>:</td>
-                            <td><input type="text" name="nama_lengkap"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Pendapatan</label></td>
-                            <td>:</td>
-                            <td><input name="pendapatan"></input></td>
-                        </tr>
-                        <tr>
-                            <td><label>Pajak</label></td>
-                            <td>:</td>
-                            <td><input name="pajak"></input></td>
-                        </tr>
-                        <tr>
-                            <td><label>Bonus</label></td>
-                            <td>:</td>
-                            <td><input name="bonus"></input></td>
-                        </tr>
-                        <tr>
-                            <td><label>Gaji Bersih</label></td>
-                            <td>:</td>
-                            <td><input name="gaji_bersih"></input></td>
-                        </tr>
-                        <tr>
-                            <td><label></label></td>
-                            <td></td>
-                            <td><button type="submit" name="input">Submit</button></td>
-                        </tr>
-                    </table>
-                </div>
+              <div class="box">
+                <table>
+                  <tr>
+                    <td><label>Nama</label></td>
+                    <td>:</td>
+                    <td><input type="text" name="nama_lengkap"></td>
+                  </tr>
+                  <tr>
+                    <td><label>Alamat</label></td>
+                    <td>:</td>
+                    <td><input type="text" name="alamat"></td>
+                  </tr>
+                  <tr>
+                    <td><label>Tanggal</label></td>
+                    <td>:</td>
+                    <td><input type="date" name="tanggal"></td>
+                  </tr>
+                  <tr>
+                        <td><label>Pendapatan</label></td>
+                        <td>:</td>
+                        <td><input name="pendapatan"></input></td>
+                    </tr>
+                    <tr>
+                        <td><label>Pajak</label></td>
+                        <td>:</td>
+                        <td><input name="pajak"></input></td>
+                    </tr>
+                    <tr>
+                        <td><label>Bonus</label></td>
+                        <td>:</td>
+                        <td><input name="bonus"></input></td>
+                    </tr>
+                    <tr>
+                        <td><label>Gaji Bersih</label></td>
+                        <td>:</td>
+                        <td><input name="gaji_bersih"></input></td>
+                    </tr>
+                    <tr>
+                        <td><label></label></td>
+                        <td></td>
+                        <td><button type="submit" name="input">Submit</button></td>
+                    </tr>
+                </table>  
+              </div>
             </div>
-        </div>
+            </div>
+      </div>
     </div>
 
 

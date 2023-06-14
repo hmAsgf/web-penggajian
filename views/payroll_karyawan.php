@@ -47,7 +47,7 @@
       </a>
     </li>
     <li>
-      <a href="#" class="logout">
+      <a href="login_karyawan.php" class="logout">
         <i class='bx bxs-log-out-circle' ></i>
         <span class="text">Logout</span>
       </a>
@@ -95,7 +95,7 @@
                   </div>
               </div>
               <div class="card">
-                  <div class="box1">
+                  <div class="box">
                       <h1>2.062.33</h1>
                       <h3>Net Pay</h3>
                       <a href=""><i>+5%</i></a>
@@ -118,12 +118,12 @@
                       <div class="table">
                           <table style="width:100%", border="1px solid black">
                               <tr>
-                                  <th style="width:15%;">Date</th>
-                                  <th style="width:15%;">Earnings</th>
-                                  <th style="width:15%;">Tax</th>
-                                  <th style="width:15%;">Super</th>
-                                  <th style="width:15%;">Net Pay</th>
-                                  <th style="width:15%;">Last Edited</th>
+                                  <th style="width:15%;">Tanggal</th>
+                                  <th style="width:15%;">Pendapatan</th>
+                                  <th style="width:15%;">Pajak</th>
+                                  <th style="width:15%;">Bonus</th>
+                                  <th style="width:15%;">Gaji Pokok</th>
+                                  <th style="width:15%;">Terakhir di Edit</th>
                                   <th style="width:15%;">Status</th>
                               </tr>
                               <tr>

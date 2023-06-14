@@ -7,7 +7,7 @@
 <!-- Boxicons -->
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 <!-- My CSS -->
-<link rel="stylesheet" type="text/css" href="../css/style_payroll.css">
+<link rel="stylesheet" type="text/css" href="../css/style_dashboard_admin.css">
 
 <title>Admin</title>
 </head>
@@ -47,7 +47,7 @@
       </a>
     </li>
     <li>
-      <a href="#" class="logout">
+      <a href="login_admin.php" class="logout">
         <i class='bx bxs-log-out-circle' ></i>
         <span class="text">Logout</span>
       </a>
@@ -67,7 +67,7 @@
     <form action="#">
       <div class="form-input">
         <input type="search" placeholder="Search...">
-        <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+        <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
       </div>
     </form>
     <input type="checkbox" id="switch-mode" hidden>
@@ -85,7 +85,7 @@
       
       <!--MAIN-->
 
-      <div class="content-payroll">
+      <div class="content-dashboard">
           <div class="cards">
               <div class="card">
                   <div class="box">
@@ -95,7 +95,7 @@
                   </div>
               </div>
               <div class="card">
-                  <div class="box1">
+                  <div class="box">
                       <h1>2.062.33</h1>
                       <h3>Net Pay</h3>
                       <a href=""><i>+5%</i></a>
