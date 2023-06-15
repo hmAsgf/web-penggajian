@@ -2,18 +2,18 @@
 
 require_once "KoneksiDB.php";
 
-class Admin extends KoneksiDB
+class Penggajian extends KoneksiDB
 {
-    function showAll()
+    function getAll($nip)
     {
-        $query = "SELECT * FROM admin";
+        $query = "SELECT * FROM penggajian WHERE nip = $nip";
         $result = mysqli_query($this->koneksi, $query);
-
-        if($result->num_rows >0)
+        
+        if($result->num_rows > 0)
         {
             while($arr = mysqli_fetch_array($result))
             {
-                $data[]  = $arr;
+                $data[] = $arr;
             }
 
             return $data;

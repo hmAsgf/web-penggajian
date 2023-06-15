@@ -348,7 +348,7 @@ body {
 	padding: 10px 30px;
     background:white;
 	border-radius: 5px;
-	align-items: center;
+	align-items:var(--red);
     display: flex;
 	justify-content: space-around;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
@@ -373,6 +373,7 @@ body {
 table, th, td{
 	border: 1px solid white;
 	border-collapse: collapse;
+	padding: 5px;
 }
 
 tr:nth-child(even), th:nth-child(even){
@@ -458,11 +459,6 @@ text-align: center;
 margin-top: 0.5em;
 }
 
-/* Positioning the first day */
-.date-grid button:first-child {
-grid-column: 6;
-}
-
 .date-grid button {
 position: relative;
 border: 0;
@@ -533,17 +529,23 @@ color: var(--teal-900);
 		display: none;
 	}
 
-	#content main .box-info {
+	#content main .content-payroll {
 		grid-template-columns: 1fr;
 	}
 
-	#content main .table-data .head {
+	#content main .cards2 .box2 {
 		min-width: 420px;
 	}
-	#content main .table-data .order table {
+	#content main .cards2 .box2 table {
 		min-width: 420px;
 	}
-	#content main .table-data .todo .todo-list {
+	#content main .cards3 .box3 {
+		min-width: 420px;
+	}
+	#content main .cards3 .box3 table {
+		min-width: 420px;
+	}
+	#content main .cards3 .box3 .calendar {
 		min-width: 420px;
 	}
 }

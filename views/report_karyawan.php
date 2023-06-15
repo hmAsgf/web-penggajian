@@ -6,12 +6,21 @@
 
 <!-- Boxicons -->
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
 <!-- My CSS -->
 <link rel="stylesheet" type="text/css" href="../css/style_report.css">
 
 <title>Report</title>
 </head>
 <body>
+
+<?php
+require_once "../controllers/reportController.php";
+require_once "../controllers/loginController.php";
+$reportC = new reportController();
+$loginC = new loginController();
+$loginC->cekAuth();
+?>
 
 
 <!-- SIDEBAR -->
@@ -47,7 +56,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="login_karyawan.php" class="logout">
+			<a href="logout.php" class="logout">
 				<i class='bx bxs-log-out-circle' ></i>
 				<span class="text">Logout</span>
 			</a>
@@ -92,6 +101,18 @@
 							<td>
 								<select name="bulan">
 									<option value="0">Pilih</option>
+									<option value="1">January</option>
+									<option value="2">February</option>
+									<option value="3">March</option>
+									<option value="4">April</option>
+									<option value="5">May</option>
+									<option value="6">June</option>
+									<option value="7">July</option>
+									<option value="8">August</option>
+									<option value="9">September</option>
+									<option value="10">October</option>
+									<option value="11">November</option>
+									<option value="12">December</option>
 								</select>
 							</td>
 							<td>Tahun</td>
@@ -103,19 +124,20 @@
 						</tr>
 					</table>
 					<br>
-					<h4>Gaji Pegawai - Bulan : 01, Tahun 2023</h4>
+					<h4>Gaji Pegawai - Bulan : - Tahun : 2023</h4>
 					<br>
 					<div class="table">
 						<table style="width:100%", border="1px solid black">
 							<tr>
-								<td>Tanggal</td>
-								<td>Gaji Pokok</td>
-								<td>Pajak</td>
-								<td>Uang Lembur</td>
-								<td>Potongan</td>
-								<td>Total Gaji</td>
+								<th>Date</th>
+								<th>Basic Salary</th>
+								<th>Tax</th>
+								<th>Salary Deductions</th>
+								<th>Overtime Pay</th>
+								<th>Net Salary</th>
 							</tr>
-							<tr>
+							<?php $reportC->showAll(); ?>
+							<!-- <tr>
 								<td>Januari 2023</td>
 								<td>5.000.000</td>
 								<td>2.000.000</td>
@@ -210,7 +232,7 @@
 								<td>60.000</td>
 								<td>10.000</td>
 								<td>7.500.000</td>
-							</tr>
+							</tr> -->
 						</table>
 					</div>
 					<br>
@@ -220,6 +242,6 @@
 		</div>
 	</div>
 
-<script src="..js/script.js"></script>
+<script src="../js/script.js"></script>
 </body>
 </html>

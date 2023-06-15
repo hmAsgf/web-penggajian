@@ -490,7 +490,7 @@ color: var(--teal-900);
 
 @media screen and (max-width: 768px) {
 	#sidebar {
-		width: 200px;
+		width: 100px;
 	}
 
 	#content {
@@ -537,13 +537,13 @@ color: var(--teal-900);
 		grid-template-columns: 1fr;
 	}
 
-	#content main .table-data .head {
+	#content main .table-date .head {
 		min-width: 420px;
 	}
-	#content main .table-data .order table {
+	#content main .table-date .order table {
 		min-width: 420px;
 	}
-	#content main .table-data .todo .todo-list {
+	#content main .table-date .todo .todo-list {
 		min-width: 420px;
 	}
 }
