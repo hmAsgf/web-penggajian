@@ -6,6 +6,7 @@
 
 <!-- Boxicons -->
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
 <!-- My CSS -->
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 
@@ -170,7 +171,7 @@ $loginC->cekAuth();
             </div>
             <br>
             <div class="pendapatan">
-                    <div class="head">
+                    <div class="head-pendapatan">
                         <h3>Claim</h3>
                     </div>
                     <table>
@@ -188,20 +189,22 @@ $loginC->cekAuth();
                     </table>
                 </div>
                 <div class="payslip">
-                    <h3>Payslip</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>2023</th>
-                            </tr>
-                            <tr>
-                                <th>31 Dec</th>
-                            </tr>
-                            <tr>
-                                <th>Hours Payslip</th>
-                            </tr>
-                        </thead>
-                    </table>
+                    <div class="head-payslip">
+                        <h3>Payslip</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>2023</th>
+                                </tr>
+                                <tr>
+                                    <th>31 Dec</th>
+                                </tr>
+                                <tr>
+                                    <th>Hours Payslip</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
         </div>
     </main>
@@ -210,6 +213,6 @@ $loginC->cekAuth();
 <!-- CONTENT -->
 
 
-<script src="script.js"></script>
+<script src="../js/script.js"></script>
 </body>
 </html>

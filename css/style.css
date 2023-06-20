@@ -417,34 +417,23 @@ body {
 		color: var(--dark);
 	}
 
-	#content nav form.show .form-input input {
-		display: block;
-		width: 100%;
-	}
-	#content nav form.show .form-input button {
-		width: 36px;
-		height: 100%;
-		border-radius: 0 36px 36px 0;
-		color: var(--light);
-		background: var(--red);
-	}
-
-	#content nav form.show ~ .notification,
-	#content nav form.show ~ .profile {
-		display: none;
-	}
-
-	#content main .box-info {
+	#content main .head-title {
 		grid-template-columns: 1fr;
 	}
 
-	#content main .table-data .head {
+	#content main .table-date .head {
 		min-width: 420px;
 	}
-	#content main .table-data .order table {
+	#content main .table-date .head table {
 		min-width: 420px;
 	}
-	#content main .table-data .todo .todo-list {
+	#content main .absen .head-absen {
+		min-width: 420px;
+	}
+	#content main .pendapatan .head-pendapatan {
+		min-width: 420px;
+	}
+	#content main .payslip .head-payslip {
 		min-width: 420px;
 	}
 }

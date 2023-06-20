@@ -8,6 +8,7 @@
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 <!-- My CSS -->
 <link rel="stylesheet" type="text/css" href="../css/style_payroll.css">
+
 <title>Payroll</title>
 </head>
 <body>
@@ -158,6 +159,7 @@
                       </div>
                   </div>
               </div>
+              <br><br>
               <div class="card3">
                   <div class="box3">
                     <br><br>
@@ -179,6 +181,6 @@
   </div>
 <!--MAIN-->
 
-<script src="..js/script.js"></script>
+<script src="../js/script.js"></script>
 </body>
 </html>

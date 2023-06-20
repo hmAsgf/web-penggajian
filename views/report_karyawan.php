@@ -6,6 +6,7 @@
 
 <!-- Boxicons -->
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
 <!-- My CSS -->
 <link rel="stylesheet" type="text/css" href="../css/style_report.css">
 
@@ -241,6 +242,6 @@ $loginC->cekAuth();
 		</div>
 	</div>
 
-<script src="..js/script.js"></script>
+<script src="../js/script.js"></script>
 </body>
 </html>

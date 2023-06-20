@@ -286,8 +286,6 @@ body {
 }
 /* NAVBAR */
 
-
-
 /*MAIN*/
 #content .content-payroll{
     position: relative;
@@ -296,84 +294,27 @@ body {
 }
 
 #content .content-payroll .cards{
-    padding: 20px 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-#content .content-payroll .cards2{
-    padding: 20px 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-#content .content-payroll .cards3{
     padding: 10px 10px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 #content .content-payroll .cards .card {
-    width: 350px;
-    height: 150px;
+    width: 1200px;
+    height: 650px;
     background:white;
 	border-radius: 5px;
 	align-items: center;
     display: flex;
-	justify-content: space-around;
+	/* justify-content: space-around; */
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-}
-
-#content .content-payroll .cards2 .card2 {
-    width: 100%;
-    height: 400px;
-	padding: 10px 30px;
-    background:white;
-	border-radius: 5px;
-	align-items:var(--red);
-    display: flex;
-	justify-content: space-between;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-}
-
-#content .content-payroll .cards3 .card3 {
-    width: 600px;
-    height: 320px;
-	padding: 10px 30px;
-    background:white;
-	border-radius: 5px;
-	align-items:var(--red);
-    display: flex;
-	justify-content: space-around;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-}
-
-#content .content-payroll .cards2 .card2 .box2{
-	width: 100%;
-}
-
-#content .content-payroll .cards3 .card3 .box3{
-	width: 100%;
-}
-
-#content .content-payroll .cards .card h3{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-right: 230px;
-	color: #751AE8;
-	
 }
 
 table, th, td{
 	border: 1px solid white;
 	border-collapse: collapse;
-	padding: 5px;
 }
 
 tr:nth-child(even), th:nth-child(even){
@@ -398,91 +339,19 @@ tr:hover{background-color: #D6EEEE;}
 	color: red;
 }
 
-#content .content-payroll .cards .card .box1 a{
-	color: green;
+#content .content-payroll .cards .card .box a{
+	color: red;
 }
 
+a .btn-edit{
+	align-items: center;
+	display: flex;
+}
+
+.box h1, table{
+	margin-left: 30px;
+}
 /* MAIN */
-
-/* KALENDAR */
-:root {
-	--teal-050: #effcf6;
-	--teal-100: #c6f7e2;
-	--teal-200: #8eedc7;
-	--teal-300: #65d6ad;
-	--teal-400: #3ebd93;
-	--teal-500: #27ab83;
-	--teal-600: #199473;
-	--teal-700: #147d64;
-	--teal-800: #0c6b58;
-	--teal-900: #014d40;
-	--blue-grey-050: #f0f4f8;
-	--blue-grey-100: #d9e2ec;
-	--blue-grey-200: #bcccdc;
-	--blue-grey-300: #9fb3c8;
-	--blue-grey-400: #829ab1;
-	--blue-grey-500: #627d98;
-	--blue-grey-600: #486581;
-	--blue-grey-700: #334e68;
-	--blue-grey-800: #243b53;
-	--blue-grey-900: #102a43;
-  }
-  
-  
-.month-indicator {
-color: var(--blue-grey-700);
-text-align: center;
-font-weight: 500;
-}
-
-.day-of-week,
-.date-grid {
-display: grid;
-grid-template-columns: repeat(7, 1fr);
-}
-
-.day-of-week {
-margin-top: 1.25em;
-}
-
-.day-of-week > *{
-font-size: 0.7em;
-color: var(--blue-grey-400);
-font-weight: 500;
-letter-spacing: 0.1em;
-font-variant: small-caps;
-text-align: center;
-}
-
-/* Dates */
-.date-grid {
-margin-top: 0.5em;
-}
-
-.date-grid button {
-position: relative;
-border: 0;
-width: 10ch;
-height: 4.5ch;
-border-radius: 50%;
-background-color: transparent;
-color: var(--blue-grey-600);
-}
-
-.date-grid button:hover,
-.date-grid button:focus {
-outline: none;
-background-color: var(--blue-grey-050);
-color: var(--blue-grey-700);
-}
-
-.date-grid button:active,
-.date-grid button.is-selected {
-background-color: var(--teal-100);
-color: var(--teal-900);
-}
-/* KALENDAR */
-
 
 @media screen and (max-width: 768px) {
 	#sidebar {
@@ -529,23 +398,17 @@ color: var(--teal-900);
 		display: none;
 	}
 
-	#content main .content-payroll {
+	#content main .box-info {
 		grid-template-columns: 1fr;
 	}
 
-	#content main .cards2 .box2 {
+	#content main .table-data .head {
 		min-width: 420px;
 	}
-	#content main .cards2 .box2 table {
+	#content main .table-data .order table {
 		min-width: 420px;
 	}
-	#content main .cards3 .box3 {
-		min-width: 420px;
-	}
-	#content main .cards3 .box3 table {
-		min-width: 420px;
-	}
-	#content main .cards3 .box3 .calendar {
+	#content main .table-data .todo .todo-list {
 		min-width: 420px;
 	}
 }

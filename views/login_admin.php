@@ -6,17 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
     <link rel="stylesheet" href="../css/style_login.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 <body>
-<?php
-require_once "../controllers/loginController.php";
-$loginC = new loginController();
-?>
     <div class="card">
         <div class="card-content">
             <div class="card-title">
-                <h3>Lets's Get Started</h3>
+                <h3>ADMIN</h3>
             </div>
             <div class="card-title2">
                 <h4>Sign in for work absence</h4>
@@ -26,7 +22,7 @@ $loginC = new loginController();
                 <input id="user-email" class="form-content" type="email" name="email" autocomplete="on" required/>
                 <div class="form-border"></div>
                 
-                <label class="user-password" style="padding-top: 13px;">Password</label>
+                <label class="user-password" style="padding-top: 13px;">&nbsp; Password</label>
                 <input id="user-password" class="form-content" type="password" name="password" required/>
                 <div class="form-border"></div>
                     <a href="">
@@ -37,9 +33,6 @@ $loginC = new loginController();
         </div>
     </div>
 
-    <?php
-    $loginC->login();
-    ?>
     <script src="../js/login.js"></script>
 </body>
 </html>
