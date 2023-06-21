@@ -13,6 +13,17 @@
 </head>
 <body>
 
+<?php
+require_once "../controllers/loginAdminController.php";
+require_once "../utils/Kalender.php";
+require_once "../controllers/dashboardAdminController.php";
+
+$loginAdminC = new loginAdminController();
+$loginAdminC->cekAuth();
+
+$kalender = new Kalender();
+$dashAdminC = new dashboardAdminController();
+?>
 
 <!-- SIDEBAR -->
 <section id="sidebar">
@@ -47,7 +58,7 @@
       </a>
     </li>
     <li>
-      <a href="login_admin.php" class="logout">
+      <a href="logout_admin.php" class="logout">
         <i class='bx bxs-log-out-circle' ></i>
         <span class="text">Logout</span>
       </a>
@@ -84,9 +95,10 @@
       
       
       <!--MAIN-->
+      
 
       <div class="content-dashboard">
-          <div class="cards">
+          <!-- <div class="cards">
               <div class="card">
                   <div class="box">
                       <h1>4.906.21</h1>
@@ -108,132 +120,24 @@
                       <a href=""><i>-18%</i></a>
                   </div>
               </div>
-          </div>
+          </div> -->
           <div class="cards2">
               <div class="card2">
                   <div class="box2">
                       <br>
                       <h1>Financial Year Ending</h1>
-                      <br>
+                      <br><br>
                       <div class="table">
                           <table style="width:100%", border="1px solid black">
                               <tr>
-                                  <th style="width:15%;">Karyawan</th>
-                                  <th style="width:15%;">Pendapatan</th>
-                                  <th style="width:15%;">Pajak</th>
-                                  <th style="width:15%;">Bonus</th>
-                                  <th style="width:15%;">Gaji Bersih</th>
-                                  <th style="width:15%;">Terakhir di Edit</th>
-                                  <th style="width:15%;">Status</th>
+                                  <th style="width:15%;">Tanggal</th>
+                                  <th style="width:15%;">Total Gaji Pokok</th>
+                                  <th style="width:15%;">Total Pajak</th>
+                                  <th style="width:15%;">Total Potongan</th>
+                                  <th style="width:15%;">Total Gaji Lembur</th>
+                                  <th style="width:15%;">Total Gaji Bersih</th>
                               </tr>
-                              <tr>
-                                  <th>Tyson Midgget</th>
-                                  <th>14.946.21</th>
-                                  <th>747.31</th>
-                                  <th>149.46</th>
-                                  <th>4.483.86</th>
-                                  <th>01 Febuari 2023</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Adrin Gonzales</th>
-                                  <th>21.239.08</th>
-                                  <th>1.061.95</th>
-                                  <th>424.78</th>
-                                  <th>6.371.72</th>
-                                  <th>01 Maret 2023</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Donna Powell</th>
-                                  <th>9.034.85</th>
-                                  <th>451.74</th>
-                                  <th>180.69</th>
-                                  <th>2.710.20</th>
-                                  <th>01 April 2023</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Garth Hayden</th>
-                                  <th>8.034.85</th>
-                                  <th>431.78</th>
-                                  <th>172.69</th>
-                                  <th>2.590.37</th>
-                                  <th>01 Mei 2023</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Muhammad Eko</th>
-                                  <th>15.000.00</th>
-                                  <th>700.51</th>
-                                  <th>150.50</th>
-                                  <th>4.500.00</th>
-                                  <th>01 Juni 2023</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Dany Ramadhan</th>
-                                  <th>20.000.00</th>
-                                  <th>800.51</th>
-                                  <th>250.50</th>
-                                  <th>5.500.00</th>
-                                  <th>01 Juli 2023</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Yanto bastian</th>
-                                  <th>10.000.00</th>
-                                  <th>600.51</th>
-                                  <th>50.50</th>
-                                  <th>2.500.00</th>
-                                  <th>01 Agustus 2023</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Iqbal Sudirman</th>
-                                  <th>5.000.00</th>
-                                  <th>200.51</th>
-                                  <th>180.50</th>
-                                  <th>2.500.00</th>
-                                  <th>01 September 2023</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Joko Susilo</th>
-                                  <th>7.000.00</th>
-                                  <th>100.51</th>
-                                  <th>550.50</th>
-                                  <th>4.500.00</th>
-                                  <th>01 Oktober 2023</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Abdi Yulino</th>
-                                  <th>10.000.00</th>
-                                  <th>900.51</th>
-                                  <th>850.50</th>
-                                  <th>5.500.00</th>
-                                  <th>01 November 2023</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Wahyurow</th>
-                                  <th>20.000.00</th>
-                                  <th>700.51</th>
-                                  <th>650.50</th>
-                                  <th>500.00</th>
-                                  <th>01 Desember 2023</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>M. Andi</th>
-                                  <th>5.000.00</th>
-                                  <th>500.51</th>
-                                  <th>450.50</th>
-                                  <th>3.500.00</th>
-                                  <th>01 Januari 2024</th>
-                                  <th>Done</th>
-                              </tr>
+                              <?php $dashAdminC->showPenggajian(); ?>
                           </table>
                       </div>
                   </div>
@@ -242,7 +146,8 @@
           <div class="cards3">
               <div class="card3">
                   <div class="box3">
-                      <h1>TAXES</h1>
+                      <br>
+                      <h1>Taxes</h1>
                       <br>
                       <div class="table">
                           <table style="width:97%", border="1px solid black">
@@ -252,170 +157,23 @@
                                   <th style="width:15%;">Due Date</th>
                                   <th style="width:15%;">Status</th>
                               </tr>
-                              <tr>
-                                  <th>Januari 2023</th>
-                                  <th>3.049.88</th>
-                                  <th>01 Febuari</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Januari 2023</th>
-                                  <th>3.049.88</th>
-                                  <th>01 Febuari</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Januari 2023</th>
-                                  <th>3.049.88</th>
-                                  <th>01 Febuari</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Januari 2023</th>
-                                  <th>3.049.88</th>
-                                  <th>01 Febuari</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Januari 2023</th>
-                                  <th>3.049.88</th>
-                                  <th>01 Febuari</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Januari 2023</th>
-                                  <th>3.049.88</th>
-                                  <th>01 Febuari</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Januari 2023</th>
-                                  <th>3.049.88</th>
-                                  <th>01 Febuari</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Januari 2023</th>
-                                  <th>3.049.88</th>
-                                  <th>01 Febuari</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Januari 2023</th>
-                                  <th>3.049.88</th>
-                                  <th>01 Febuari</th>
-                                  <th>Done</th>
-                              </tr>
-                              <tr>
-                                  <th>Januari 2023</th>
-                                  <th>3.049.88</th>
-                                  <th>01 Febuari</th>
-                                  <th>Done</th>
-                              </tr>
+                              <?php $dashAdminC->showPajak(); ?>
                           </table>
                       </div>
                   </div>
               </div>
               <div class="card3">
                   <div class="box3">
+                      <br><br>
                       <div class="calendar">
                           <div class="month-indicator">
-                            <time datetime="2023-01"> Januari 2023 </time>
+                            <time datetime="<?php echo $kalender->tahubBulan; ?>"> <?php echo $kalender->bulanTahun; ?> </time>
                           </div>
                           <div class="day-of-week">
-                            <div>Su</div>
-                            <div>Mo</div>
-                            <div>Tu</div>
-                            <div>We</div>
-                            <div>Th</div>
-                            <div>Fr</div>
-                            <div>Sa</div>
+                            <?php $kalender->showDays(); ?>
                           </div>
                           <div class="date-grid">
-                            <button>
-                              <time datetime="2023-01-01">1</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-02">2</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-03">3</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-04">4</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-05">5</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-06">6</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-07">7</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-08">8</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-09">9</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-10">10</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-11">11</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-12">12</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-13">13</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-14">14</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-15">15</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-16">16</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-17">17</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-18">18</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-19">19</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-20">20</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-21">21</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-22">22</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-23">23</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-24">24</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-25">25</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-26">26</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-27">27</time>
-                            </button>
-                            <button>
-                              <time datetime="2023-01-28">28</time>
-                            </button>
+                            <?php $kalender->showDate(); ?>
                           </div>
                         </div>
                   </div>

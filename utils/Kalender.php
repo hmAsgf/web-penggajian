@@ -45,4 +45,10 @@ class Kalender
             echo "</button>";
         }
     }
+
+    function today()
+    {
+        $tanggal_sekarang = date('Y-m-d');
+        return $tanggal_sekarang;
+    }
 }

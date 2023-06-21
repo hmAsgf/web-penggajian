@@ -12,6 +12,17 @@
 <title>Input Admin</title>
 </head>
 <body>
+<?php
+require_once "../controllers/loginAdminController.php";
+require_once "../controllers/inputAdminController.php";
+require_once "../utils/Kalender.php";
+
+$loginAdminC = new loginAdminController();
+$loginAdminC->cekAuth();
+
+$inputAdminC = new inputAdminController();
+$kalender = new Kalender();
+?>
   <!-- SIDEBAR -->
   <section id="sidebar">
     <a href="#" class="brand">
@@ -45,7 +56,7 @@
         </a>
       </li>
       <li>
-        <a href="login_admin.php" class="logout">
+        <a href="logout_admin.php" class="logout">
           <i class='bx bxs-log-out-circle' ></i>
           <span class="text">Logout</span>
         </a>
@@ -85,53 +96,66 @@
         <div class="cards">
               <div class="card">
                 <div class="box">
-                  <table>
-                    <tr>
-                      <td><label>Nama</label></td>
-                      <td>:</td>
-                      <td><input type="text" name="nama_lengkap"></td>
-                    </tr>
-                    <tr>
-                      <td><label>Alamat</label></td>
-                      <td>:</td>
-                      <td><input type="text" name="alamat"></td>
-                    </tr>
-                    <tr>
-                      <td><label>Tanggal</label></td>
-                      <td>:</td>
-                      <td><input type="date" name="tanggal"></td>
-                    </tr>
-                    <tr>
-                          <td><label>Pendapatan</label></td>
-                          <td>:</td>
-                          <td><input name="pendapatan"></input></td>
+                  <form action="" method="post">
+                    <table>
+                      <tr>
+                        <td><label>Nama</label></td>
+                        <td>:</td>
+                        <td>
+                          <select name="nama">
+                            <?php $inputAdminC->showNamaAll(); ?>
+                          </select>
+                        </td>
+                        <!-- <td><input type="text" name="nama_lengkap"></td> -->
+                      </tr>
+                      <!-- <tr>
+                        <td><label>Alamat</label></td>
+                        <td>:</td>
+                        <td><input type="text" name="alamat"></td>
+                      </tr> -->
+                      <tr>
+                        <td><label>Tanggal</label></td>
+                        <td>:</td>
+                        <td><input type="date" name="tanggal" value="<?php echo $kalender->today(); ?>"></td>
                       </tr>
                       <tr>
-                          <td><label>Pajak</label></td>
-                          <td>:</td>
-                          <td><input name="pajak"></input></td>
-                      </tr>
-                      <tr>
-                          <td><label>Bonus</label></td>
-                          <td>:</td>
-                          <td><input name="bonus"></input></td>
-                      </tr>
-                      <tr>
-                          <td><label>Gaji Bersih</label></td>
-                          <td>:</td>
-                          <td><input name="gaji_bersih"></input></td>
-                      </tr>
-                      <tr>
-                          <td><label></label></td>
-                          <td></td>
-                          <td><button type="submit" name="input">Submit</button></td>
-                      </tr>
-                  </table>  
+                            <td><label>Gaji Pokok</label></td>
+                            <td>:</td>
+                            <td><input type="number" name="gaji_pokok"></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Pajak</label></td>
+                            <td>:</td>
+                            <td><input type="number" name="pajak"></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Potongan</label></td>
+                            <td>:</td>
+                            <td><input type="number" name="potongan"></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Gaji Lembur</label></td>
+                            <td>:</td>
+                            <td><input type="number" name="gaji_lembur"></input></td>
+                        </tr>
+                        <tr>
+                            <td><label>Gaji Bersih</label></td>
+                            <td>:</td>
+                            <td><input type="number" name="gaji_bersih"></input></td>
+                        </tr>
+                        <tr>
+                            <td><label></label></td>
+                            <td></td>
+                            <td><button type="submit" name="input">Submit</button></td>
+                        </tr>
+                    </table>
+                  </form>  
                 </div>
               </div>
               </div>
         </div>
       </div>
+      <?php $inputAdminC->tes(); ?>
       <!-- MAIN -->
   </div>
   <script src="../js/script.js"></script>

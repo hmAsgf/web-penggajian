@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 <body>
+<?php
+require_once "../controllers/loginAdminController.php";
+$loginAdminC = new loginAdminController();
+?>
     <div class="card">
         <div class="card-content">
             <div class="card-title">
@@ -18,11 +22,11 @@
                 <h4>Sign in for work absence</h4>
             </div>
             <form method="post" class="form">
-                <label class="user" style="padding-top: 13px;">Email</label>
-                <input id="user-email" class="form-content" type="email" name="email" autocomplete="on" required/>
+                <label class="user" style="padding-top: 13px;">Username</label>
+                <input id="user-email" class="form-content" type="text" name="username" autocomplete="on" required/>
                 <div class="form-border"></div>
                 
-                <label class="user-password" style="padding-top: 13px;">&nbsp; Password</label>
+                <label class="user-password" style="padding-top: 13px;">Password</label>
                 <input id="user-password" class="form-content" type="password" name="password" required/>
                 <div class="form-border"></div>
                     <a href="">
@@ -32,6 +36,10 @@
             </form>
         </div>
     </div>
+
+    <?php
+    $loginAdminC->login();
+    ?>
 
     <script src="../js/login.js"></script>
 </body>

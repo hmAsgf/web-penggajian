@@ -29,9 +29,7 @@ $loginC = new loginController();
                 <label class="user-password" style="padding-top: 13px;">Password</label>
                 <input id="user-password" class="form-content" type="password" name="password" required/>
                 <div class="form-border"></div>
-                    <a href="">
-                        <legend class="forgot-pass">Forget your password?</legend>
-                    </a>
+                    <legend class="forgot-pass"><a href="">Forget your password?</a></legend>
                     <input class="submit-btn" type="submit" name="submit" value="LOGIN">
             </form>
         </div>

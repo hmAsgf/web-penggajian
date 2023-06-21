@@ -2,11 +2,11 @@
 
 require_once "KoneksiDB.php";
 
-class Admin extends KoneksiDB
+class Jabatan extends KoneksiDB
 {
-    function getByUsername($username)
+    function getById($id)
     {
-        $query = "SELECT * FROM admin WHERE username = '$username'";
+        $query = "SELECT * FROM jabatan WHERE id = $id";
         $result = mysqli_query($this->koneksi, $query);
 
         $data = mysqli_fetch_array($result);

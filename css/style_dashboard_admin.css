@@ -348,7 +348,7 @@ body {
 	padding: 10px 30px;
     background:white;
 	border-radius: 5px;
-	align-items: center;
+	align-items: var(--red);
     display: flex;
 	justify-content: space-around;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
@@ -373,6 +373,7 @@ body {
 table, th, td{
 	border: 1px solid white;
 	border-collapse: collapse;
+	padding: 5px;
 }
 
 tr:nth-child(even), th:nth-child(even){
@@ -456,11 +457,6 @@ text-align: center;
 /* Dates */
 .date-grid {
 margin-top: 0.5em;
-}
-
-/* Positioning the first day */
-.date-grid button:first-child {
-grid-column: 6;
 }
 
 .date-grid button {
