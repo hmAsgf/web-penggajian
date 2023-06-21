@@ -236,7 +236,7 @@ $loginC->cekAuth();
 						</table>
 					</div>
 					<br>
-					<h5>Ekspor Dafar Gaji Pegawai ke PDF</h5>
+					<button><h5>Ekspor Dafar Gaji Pegawai ke PDF</h5></button>
 				</div>
 			</div>
 		</div>

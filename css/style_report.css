@@ -315,7 +315,7 @@ h4{
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
 
-h5{
+h5, button{
     width: 230px;
     height: 40px;
 	color: white;
@@ -324,7 +324,6 @@ h5{
 	align-items: center;
     display: flex;
 	justify-content: space-around;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
 
 table, th, td{
