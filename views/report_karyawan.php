@@ -140,7 +140,9 @@ $loginC->cekAuth();
 						</table>
 					</div>
 					<br>
-					<h5>Ekspor Dafar Gaji Pegawai ke PDF</h5>
+					<form method="post" action="../utils/downloadPDF.php">
+						<input type="submit" class="pdf" name="downloadPDF" value="Ekspor Dafar Gaji Pegawai ke PDF">
+					</form>
 				</div>
 			</div>
 		</div>

@@ -22,6 +22,15 @@ class Pegawai extends KoneksiDB
         return $data;
     }
 
+    function getByNip($nip)
+    {
+        $query = "SELECT * FROM pegawai WHERE nip = $nip";
+        $result = mysqli_query($this->koneksi, $query);
+
+        $data = mysqli_fetch_array($result);
+        return $data;
+    }
+
     function getAll()
     {
         $query = "SELECT * FROM pegawai";

@@ -1,6 +1,7 @@
 <?php
 
-require_once"../models/Penggajian.php";
+require_once "../models/Penggajian.php";
+require_once "../fpdf186/fpdf.php";
 
 class reportController
 {
@@ -14,7 +15,7 @@ class reportController
         $this->penggajianModel = new Penggajian();
     }
     
-    private function formatRupiah($nominal)
+    function formatRupiah($nominal)
     {
         $rupiah = number_format($nominal, 0, ',', '.');
         return $rupiah;
