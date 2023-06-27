@@ -94,29 +94,6 @@
       <!--MAIN-->
 
       <div class="content-payroll">
-          <!-- <div class="cards">
-              <div class="card">
-                  <div class="box">
-                      <h1>4.906.21</h1>
-                      <h3>Earning</h3>
-                      <a href=""><i>-5%</i></a>
-                  </div>
-              </div>
-              <div class="card">
-                  <div class="box1">
-                      <h1>2.062.33</h1>
-                      <h3>Net Pay</h3>
-                      <a href=""><i>+5%</i></a>
-                  </div>
-              </div>
-              <div class="card">
-                  <div class="box">
-                      <h1>2.832.27</h1>
-                      <h3>Superanuation</h3>
-                      <a href=""><i>-18%</i></a>
-                  </div>
-              </div>
-          </div> -->
           <div class="cards2">
               <div class="card2">
                   <div class="box2">
@@ -126,12 +103,12 @@
                       <div class="table">
                           <table cellpadding="5px" style="width:100%;"">
                               <tr>
-                                  <th style="width:15%;">Date</th>
-                                  <th style="width:15%;">Basic Salary</th>
-                                  <th style="width:15%;">Tax</th>
-                                  <th style="width:15%;">Salary Deductions</th>
-                                  <th style="width:15%;">Overtime Pay</th>
-                                  <th style="width:15%;">Net Salary</th>
+                                  <th style="width:15%;">Periode</th>
+                                  <th style="width:15%;">Gaji Pokok</th>
+                                  <th style="width:15%;">Pajak</th>
+                                  <th style="width:15%;">Potongan</th>
+                                  <th style="width:15%;">Gaji Lembur</th>
+                                  <th style="width:15%;">Gaji Bersih</th>
                                   <th style="width:15%;">Status</th>
                               </tr>
                               <?php $payrollC->showPenggajian(); ?>
@@ -149,9 +126,9 @@
                       <div class="table">
                           <table style="width:97%", border="1px solid black">
                               <tr>
-                                  <th style="width:15%;">Date</th>
-                                  <th style="width:15%;">Total Amount</th>
-                                  <th style="width:15%;">Due Date</th>
+                                  <th style="width:15%;">Periode</th>
+                                  <th style="width:15%;">Total Pajak</th>
+                                  <th style="width:15%;">Tanggal</th>
                                   <th style="width:15%;">Status</th>
                               </tr>
                               <?php $payrollC->showPajak(); ?>

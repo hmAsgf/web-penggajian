@@ -24,7 +24,7 @@ class payrollAdminController
 
         foreach ($data as $datum)
         {
-            $tanggal = date('j F Y', strtotime($datum['tanggal']));
+            $tanggal = date('F Y', strtotime($datum['tanggal']));
         ?>
             <tr>
                 <td align="center"><?php echo $tanggal; ?></td>

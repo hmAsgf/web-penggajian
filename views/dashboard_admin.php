@@ -130,7 +130,7 @@ $dashAdminC = new dashboardAdminController();
                       <div class="table">
                           <table style="width:100%", border="1px solid black">
                               <tr>
-                                  <th style="width:15%;">Tanggal</th>
+                                  <th style="width:15%;">Periode</th>
                                   <th style="width:15%;">Total Gaji Pokok</th>
                                   <th style="width:15%;">Total Pajak</th>
                                   <th style="width:15%;">Total Potongan</th>
@@ -152,9 +152,9 @@ $dashAdminC = new dashboardAdminController();
                       <div class="table">
                           <table style="width:97%", border="1px solid black">
                               <tr>
-                                  <th style="width:15%;">Date</th>
-                                  <th style="width:15%;">Total Amount</th>
-                                  <th style="width:15%;">Due Date</th>
+                                  <th style="width:15%;">Periode</th>
+                                  <th style="width:15%;">Total Pajak</th>
+                                  <th style="width:15%;">Tanggal</th>
                                   <th style="width:15%;">Status</th>
                               </tr>
                               <?php $dashAdminC->showPajak(); ?>

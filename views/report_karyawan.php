@@ -129,110 +129,14 @@ $loginC->cekAuth();
 					<div class="table">
 						<table style="width:100%", border="1px solid black">
 							<tr>
-								<th>Date</th>
-								<th>Basic Salary</th>
-								<th>Tax</th>
-								<th>Salary Deductions</th>
-								<th>Overtime Pay</th>
-								<th>Net Salary</th>
+								<th>Periode</th>
+								<th>Gaji Pokok</th>
+								<th>Pajak</th>
+								<th>Potongan</th>
+								<th>Gaji Lembur</th>
+								<th>Gaji Bersih</th>
 							</tr>
 							<?php $reportC->showAll(); ?>
-							<!-- <tr>
-								<td>Januari 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>60.000</td>
-								<td>10.000</td>
-								<td>7.050.000</td>
-							</tr>
-							<tr>
-								<td>Febuari 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>50.000</td>
-								<td>10.000</td>
-								<td>7.040.000</td>
-							</tr>
-							<tr>
-								<td>Maret 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>70.000</td>
-								<td>20.000</td>
-								<td>7.050.000</td>
-							</tr>
-							<tr>
-								<td>April 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>80.000</td>
-								<td>15.000</td>
-								<td>7.065.000</td>
-							</tr>
-							<tr>
-								<td>Mei 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>60.000</td>
-								<td>10.000</td>
-								<td>7.500.000</td>
-							</tr>
-							<tr>
-								<td>Juni 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>60.000</td>
-								<td>10.000</td>
-								<td>7.500.000</td>
-							</tr>
-							<tr>
-								<td>Juli 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>60.000</td>
-								<td>10.000</td>
-								<td>7.500.000</td>
-							</tr>
-							<tr>
-								<td>Agustus 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>60.000</td>
-								<td>10.000</td>
-								<td>7.500.000</td>
-							</tr>
-							<tr>
-								<td>September 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>60.000</td>
-								<td>10.000</td>
-								<td>7.500.000</td>
-							</tr>
-							<tr>
-								<td>Oktober 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>60.000</td>
-								<td>10.000</td>
-								<td>7.500.000</td>
-							</tr>
-							<tr>
-								<td>November 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>60.000</td>
-								<td>10.000</td>
-								<td>7.500.000</td>
-							</tr>
-							<tr>
-								<td>Desember 2023</td>
-								<td>5.000.000</td>
-								<td>2.000.000</td>
-								<td>60.000</td>
-								<td>10.000</td>
-								<td>7.500.000</td>
-							</tr> -->
 						</table>
 					</div>
 					<br>

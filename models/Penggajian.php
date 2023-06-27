@@ -69,4 +69,14 @@ class Penggajian extends KoneksiDB
             return $data;
         }
     }
+
+    function insert($nip, $idAdmin, $tanggal, $gajiPokok, $pajak, $potongan, $gajiLembur, $gajiBersih)
+    {
+        $query = "INSERT INTO penggajian VALUES
+                    ('', $nip, $idAdmin, '$tanggal', $gajiPokok, $pajak, $potongan, $gajiLembur, $gajiBersih)";
+
+        $result = mysqli_query($this->koneksi, $query);
+
+        return $result;
+    }
 }

@@ -22,21 +22,24 @@ class reportController
 
     function showAll()
     {
-        $data = $this->penggajianModel->getAll($this->nipPegawai);
+        $data = $this->penggajianModel->getByNip($this->nipPegawai);
 
-        foreach ($data as $datum)
+        if($data)
         {
-            $tanggal = date('j F Y', strtotime($datum['tanggal']));
-        ?>
-            <tr>
-                <td align="center"><?php echo $tanggal; ?></td>
-                <td align="right"><?php echo $this->formatRupiah($datum['gaji_pokok']); ?></td>
-                <td align="right"><?php echo $this->formatRupiah($datum['pajak']); ?></td>
-                <td align="right"><?php echo $this->formatRupiah($datum['potongan']); ?></td>
-                <td align="right"><?php echo $this->formatRupiah($datum['gaji_lembur']); ?></td>
-                <td align="right"><?php echo $this->formatRupiah($datum['gaji_bersih']); ?></td>
-            </tr>
-        <?php
+            foreach ($data as $datum)
+            {
+                $tanggal = date('F Y', strtotime($datum['tanggal']));
+            ?>
+                <tr>
+                    <td align="center"><?php echo $tanggal; ?></td>
+                    <td align="right"><?php echo $this->formatRupiah($datum['gaji_pokok']); ?></td>
+                    <td align="right"><?php echo $this->formatRupiah($datum['pajak']); ?></td>
+                    <td align="right"><?php echo $this->formatRupiah($datum['potongan']); ?></td>
+                    <td align="right"><?php echo $this->formatRupiah($datum['gaji_lembur']); ?></td>
+                    <td align="right"><?php echo $this->formatRupiah($datum['gaji_bersih']); ?></td>
+                </tr>
+            <?php
+            }
         }
     }
 }

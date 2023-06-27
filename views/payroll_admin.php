@@ -101,7 +101,7 @@ $payrollAdminC = new payrollAdminController();
                   <div class="table">
                     <table style="width:155%", border="1px solid black">
                       <tr>
-                        <th>Tanggal</th>
+                        <th>Periode</th>
                         <th>NIP</th>
                         <th>Nama Pegawai</th>
                         <th>Gaji Bersih</th>

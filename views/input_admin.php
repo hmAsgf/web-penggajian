@@ -86,7 +86,7 @@ $kalender = new Kalender();
               <span class="num">8</span>
           </a>
           <a href="#" class="profile">
-              <img src="img/people.png">
+              <!-- <img src="img/people.png"> -->
           </a>
       </nav>
       <!-- NAVBAR -->
@@ -102,62 +102,144 @@ $kalender = new Kalender();
                         <td><label>Nama</label></td>
                         <td>:</td>
                         <td>
-                          <select name="nama">
+                          <select name="nama" id="nama">
+                            <option value="0">Pilih Nama Pegawai</option>
                             <?php $inputAdminC->showNamaAll(); ?>
                           </select>
                         </td>
-                        <!-- <td><input type="text" name="nama_lengkap"></td> -->
                       </tr>
-                      <!-- <tr>
-                        <td><label>Alamat</label></td>
-                        <td>:</td>
-                        <td><input type="text" name="alamat"></td>
-                      </tr> -->
                       <tr>
                         <td><label>Tanggal</label></td>
                         <td>:</td>
-                        <td><input type="date" name="tanggal" value="<?php echo $kalender->today(); ?>"></td>
+                        <td><input type="date" id="tanggal" name="tanggal"value="<?php echo $kalender->today(); ?>"></td>
                       </tr>
                       <tr>
-                            <td><label>Gaji Pokok</label></td>
-                            <td>:</td>
-                            <td><input type="number" name="gaji_pokok"></input></td>
-                        </tr>
-                        <tr>
-                            <td><label>Pajak</label></td>
-                            <td>:</td>
-                            <td><input type="number" name="pajak"></input></td>
-                        </tr>
-                        <tr>
-                            <td><label>Potongan</label></td>
-                            <td>:</td>
-                            <td><input type="number" name="potongan"></input></td>
-                        </tr>
-                        <tr>
-                            <td><label>Gaji Lembur</label></td>
-                            <td>:</td>
-                            <td><input type="number" name="gaji_lembur"></input></td>
-                        </tr>
-                        <tr>
-                            <td><label>Gaji Bersih</label></td>
-                            <td>:</td>
-                            <td><input type="number" name="gaji_bersih"></input></td>
-                        </tr>
-                        <tr>
-                            <td><label></label></td>
-                            <td></td>
-                            <td><button type="submit" name="input">Submit</button></td>
-                        </tr>
+                        <td><label>Gaji Pokok</label></td>
+                        <td>:</td>
+                        <td><input type="number" id="gaji_pokok" name="gaji_pokok" readonly></input></td>
+                      </tr>
+                      <tr>
+                        <td><label>Pajak</label></td>
+                        <td>:</td>
+                        <td><input type="number" id="pajak" name="pajak" readonly></input></td>
+                      </tr>
+                      <tr>
+                        <td><label>Potongan</label></td>
+                        <td>:</td>
+                        <td><input type="number" id="potongan" name="potongan" readonly></input></td>
+                      </tr>
+                      <tr>
+                        <td><label>Gaji Lembur</label></td>
+                        <td>:</td>
+                        <td><input type="number" id="gaji_lembur" name="gaji_lembur" readonly></input></td>
+                      </tr>
+                      <tr>
+                        <td><label>Gaji Bersih</label></td>
+                        <td>:</td>
+                        <td><input type="number" id="gaji_bersih" name="gaji_bersih" readonly></input></td>
+                      </tr>
+                      <tr>
+                        <td><label></label></td>
+                        <td></td>
+                        <td><input type="submit" name="input" value="Submit"></td>
+                      </tr>
                     </table>
-                  </form>  
+                  </form>
+                  
+                  <?php $inputAdminC->insert(); ?>
                 </div>
               </div>
               </div>
         </div>
       </div>
-      <?php $inputAdminC->tes(); ?>
+
       <!-- MAIN -->
   </div>
   <script src="../js/script.js"></script>
+  <script>
+    const nama = document.getElementById('nama');
+    const tanggal = document.getElementById('tanggal');
+    const gajiPokok = document.getElementById('gaji_pokok');
+    const pajak = document.getElementById('pajak');
+    const potongan = document.getElementById('potongan');
+    const gajiLembur = document.getElementById('gaji_lembur');
+    const gajiBersih = document.getElementById('gaji_bersih');
+
+    let jabatan = <?php echo json_encode($inputAdminC->getJabatan()); ?>;
+    let potonganTotal = <?php echo json_encode($inputAdminC->getPotongan()); ?>;
+    let lemburTotal = <?php echo json_encode($inputAdminC->getLembur()); ?>;
+
+    function proses()
+    {
+      let jabatanObj = null;
+      let potonganObj = null;
+      let lemburObj = null;
+
+      let nip = nama.value;
+      let v_tanggal = new Date(tanggal.value);
+      let bulan = v_tanggal.getMonth() + 1;
+      let tahun = v_tanggal.getFullYear();
+
+      jabatan.forEach(jbt =>
+      {
+        if(jbt.nip == nip)
+        {
+          jabatanObj = jbt;
+        }
+      });
+
+      potonganTotal.forEach(ptgn =>
+      {
+        if(ptgn.nip == nip && ptgn.bulan == bulan && ptgn.tahun == tahun)
+        {
+          potonganObj = ptgn;
+        }
+      });
+
+      lemburTotal.forEach(lmbr =>
+      {
+        if(lmbr.nip == nip && lmbr.bulan == bulan && lmbr.tahun == tahun)
+        {
+          lemburObj = lmbr;
+        }
+      });
+
+      if(jabatanObj)
+      {
+        gajiPokok.value = parseInt(jabatanObj.gaji_pokok);
+        pajak.value = parseInt(jabatanObj.pajak);
+      }
+      else
+      {
+        gajiPokok.value = 0;
+        pajak.value = 0;
+      }
+
+      if(potonganObj)
+      {
+        potongan.value = parseInt(potonganObj.total_potongan);
+      }
+      else
+      {
+        potongan.value = 0;
+      }
+
+      if(lemburObj)
+      {
+        gajiLembur.value = parseInt(lemburObj.total_lembur);
+      }
+      else
+      {
+        gajiLembur.value = 0;
+      }
+
+      gajiBersih.value = parseInt(gajiPokok.value) - parseInt(pajak.value) - parseInt(potongan.value) + parseInt(gajiLembur.value);
+    }
+
+    nama.addEventListener('change', proses);
+    tanggal.addEventListener('change', proses);
+    window.addEventListener('load', proses);
+
+  </script>
 </body>
 </html>
