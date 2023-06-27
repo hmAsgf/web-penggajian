@@ -95,34 +95,41 @@ $loginC->cekAuth();
 		<div class="cards">
 			<div class="card">
 				<div class="box">
-					<table class="table1">
-						<tr>
-							<td>Bulan</td>
-							<td>
-								<select name="bulan">
-									<option value="0">Pilih</option>
-									<option value="1">January</option>
-									<option value="2">February</option>
-									<option value="3">March</option>
-									<option value="4">April</option>
-									<option value="5">May</option>
-									<option value="6">June</option>
-									<option value="7">July</option>
-									<option value="8">August</option>
-									<option value="9">September</option>
-									<option value="10">October</option>
-									<option value="11">November</option>
-									<option value="12">December</option>
-								</select>
-							</td>
-							<td>Tahun</td>
-							<td>
-								<select name="tahun">
-									<option value="0">Pilih</option>
-								</select>
-							</td>
-						</tr>
-					</table>
+					<form method="post">
+						<table class="table1">
+							<tr>
+								<td>Bulan</td>
+								<td>
+									<select name="bulan">
+										<option value="0">Pilih</option>
+										<option value="1">January</option>
+										<option value="2">February</option>
+										<option value="3">March</option>
+										<option value="4">April</option>
+										<option value="5">May</option>
+										<option value="6">June</option>
+										<option value="7">July</option>
+										<option value="8">August</option>
+										<option value="9">September</option>
+										<option value="10">October</option>
+										<option value="11">November</option>
+										<option value="12">December</option>
+									</select>
+								</td>
+								<td>Tahun</td>
+								<td>
+									<select name="tahun">
+										<option value="0">Pilih</option>
+										<?php $reportC->getTahun(); ?>
+									</select>
+								</td>
+								<td></td>
+								<td>
+									<input type="submit" value="Cari" name="cari">
+								</td>
+							</tr>
+						</table>
+					</form>
 					<br>
 					<h4>Gaji Pegawai - Bulan : - Tahun : 2023</h4>
 					<br>
@@ -136,7 +143,7 @@ $loginC->cekAuth();
 								<th>Gaji Lembur</th>
 								<th>Gaji Bersih</th>
 							</tr>
-							<?php $reportC->showAll(); ?>
+							<?php $reportC->searchPenggajian(); ?>
 						</table>
 					</div>
 					<br>
@@ -147,6 +154,7 @@ $loginC->cekAuth();
 			</div>
 		</div>
 	</div>
+	
 
 <script src="../js/script.js"></script>
 </body>

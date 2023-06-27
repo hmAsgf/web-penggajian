@@ -79,4 +79,51 @@ class Penggajian extends KoneksiDB
 
         return $result;
     }
+
+    function getTahun($nip)
+    {
+        $query = "SELECT YEAR(tanggal) AS tahun FROM penggajian
+                    WHERE nip = $nip GROUP BY YEAR(tanggal)";
+        $result = mysqli_query($this->koneksi, $query);
+
+        if($result->num_rows > 0)
+        {
+            while($arr = mysqli_fetch_assoc($result))
+            {
+                $data[] = $arr;
+            }
+
+            return $data;
+        }
+    }
+
+    function getPenggajianByTanggal($nip, $bulan, $tahun)
+    {
+        $query = "SELECT * FROM penggajian WHERE nip = $nip AND ";
+
+        if($bulan != 0 && $tahun != 0)
+        {
+            $query .= "MONTH(tanggal) = $bulan AND YEAR(tanggal) = $tahun";
+        }
+        elseif($bulan != 0)
+        {
+            $query .= "MONTH(tanggal) = $bulan";
+        }
+        elseif ($tahun != 0)
+        {
+            $query .= "YEAR(tanggal) = $tahun";
+        }
+
+        $result = mysqli_query($this->koneksi, $query);
+
+        if($result->num_rows > 0)
+        {
+            while($arr = mysqli_fetch_assoc($result))
+            {
+                $data[] = $arr;
+            }
+
+            return $data;
+        }
+    }
 }
