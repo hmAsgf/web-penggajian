@@ -1,76 +1,154 @@
-const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+// SIDEBAR: SUBMENU
+const allSidebarSubmenu = document.querySelectorAll('#sidebar .sidebar__submenu')
 
-allSideMenu.forEach(item=> {
-	const li = item.parentElement;
+allSidebarSubmenu.forEach(item => {
+    const a = item.previousElementSibling
 
-	item.addEventListener('click', function () {
-		allSideMenu.forEach(i=> {
-			i.parentElement.classList.remove('active');
-		})
-		li.classList.add('active');
-	})
-});
+    a.addEventListener('click', function(e) {
+        e.preventDefault()
 
+        if (this.classList.contains('clicked')) {
+            this.classList.remove('clicked')
+            item.classList.remove('active')
+        } else {
+            allSidebarSubmenu.forEach(i => {
+                i.previousElementSibling.classList.remove('clicked')
+                i.classList.remove('active')
+            })
 
-
-
-// TOGGLE SIDEBAR
-const menuBar = document.querySelector('#content nav .bx.bx-menu');
-const sidebar = document.getElementById('sidebar');
-
-menuBar.addEventListener('click', function () {
-	sidebar.classList.toggle('hide');
+            this.classList.add('clicked')
+            item.classList.add('active')
+        }
+    })
 })
 
+// SIDEBAR: DROPDOWN MENU
+const allSidebarDropdownMenu = document.querySelectorAll('#sidebar .sidebar__dropdown-menu')
 
+allSidebarDropdownMenu.forEach(item => {
+    const a = item.previousElementSibling
 
+    a.addEventListener('click', function(e) {
+        e.preventDefault()
 
+        if (item.classList.contains('active')) {
+            item.classList.remove('active')
+            this.classList.remove('active')
+        } else {
+            allSidebarDropdownMenu.forEach(i => {
+                i.previousElementSibling.classList.remove('active')
+                i.classList.remove('active')
+            })
 
-
-
-const searchButton = document.querySelector('#content nav form .form-input button');
-const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
-const searchForm = document.querySelector('#content nav form');
-
-searchButton.addEventListener('click', function (e) {
-	if(window.innerWidth < 576) {
-		e.preventDefault();
-		searchForm.classList.toggle('show');
-		if(searchForm.classList.contains('show')) {
-			searchButtonIcon.classList.replace('bx-search', 'bx-x');
-		} else {
-			searchButtonIcon.classList.replace('bx-x', 'bx-search');
-		}
-	}
+            item.classList.add('active')
+            this.classList.add('active')
+        }
+    })
 })
 
+// SIDEBAR MOBILE: TOGGLE SIDEBAR
+const toggleSidebar = document.querySelector('#sidebar-mobile .toggle-sidebar')
+const sidebar = document.querySelector('#sidebar')
 
-
-
-
-if(window.innerWidth < 768) {
-	sidebar.classList.add('hide');
-} else if(window.innerWidth > 576) {
-	searchButtonIcon.classList.replace('bx-x', 'bx-search');
-	searchForm.classList.remove('show');
-}
-
-
-window.addEventListener('resize', function () {
-	if(this.innerWidth > 576) {
-		searchButtonIcon.classList.replace('bx-x', 'bx-search');
-		searchForm.classList.remove('show');
-	}
+toggleSidebar.addEventListener('click', function() {
+    sidebar.classList.add('active')
 })
 
+// MAIN: DROPDOWN
+const allMainDropdown = document.querySelectorAll('#main .main__top .main__top__menu .main__dropdown')
 
+allMainDropdown.forEach(item => {
+    const a = item.previousElementSibling
 
-const switchMode = document.getElementById('switch-mode');
+    a.addEventListener('click', function(e) {
+        e.preventDefault()
 
-switchMode.addEventListener('change', function () {
-	if(this.checked) {
-		document.body.classList.add('dark');
-	} else {
-		document.body.classList.remove('dark');
-	}
+        if (item.classList.contains('active')) {
+            item.classList.remove('active')
+        } else {
+            allMainDropdown.forEach(i => {
+                i.classList.remove('active')
+            })
+
+            item.classList.add('active')
+        }
+    })
 })
+
+// MAIN: MAIN BODY MENU
+const allMainBodyMenu = document.querySelectorAll('#main .main__body :is(.members__menu, .sales-summary__menu) .menu')
+
+allMainBodyMenu.forEach(item=> {
+    const icon = item.previousElementSibling
+
+    icon.addEventListener('click', function () {
+        if(item.classList.contains('active')) {
+            item.classList.remove('active')
+        } else {
+            allMainBodyMenu.forEach(i=> {
+                i.classList.remove('active')
+            })
+
+            item.classList.add('active')
+        }
+    })
+})
+
+// DOCUMENT EVENT
+document.addEventListener('click', function(e) {
+    if (!e.target.matches('#sidebar, #sidebar *')) {
+        allSidebarSubmenu.forEach(item => {
+            item.previousElementSibling.classList.remove('clicked')
+            item.classList.remove('active')
+        })
+    }
+
+    if (!e.target.matches('#sidebar, #sidebar *, #sidebar-mobile .toggle-sidebar')) {
+        sidebar.classList.remove('active')
+    }
+
+    if (!e.target.matches('#main .main__top .main__top__menu, #main .main__top .main__top__menu *')) {
+        allMainDropdown.forEach(item => {
+            item.classList.remove('active')
+        })
+    }
+
+    if (!e.target.matches('#main .main__body :is(.members__menu, .sales-summary__menu), #main .main__body :is(.members__menu, .sales-summary__menu) *')) {
+        allMainBodyMenu.forEach(item => {
+            item.classList.remove('active')
+        })
+    }
+})
+
+// CHART: APEXCHART
+var options = {
+    series: [{
+        name: 'series1',
+        data: [31, 40, 28, 51, 42, 109, 100]
+    }, {
+        name: 'series2',
+        data: [11, 32, 45, 32, 34, 52, 41]
+    }],
+    chart: {
+        height: 350,
+        type: 'area'
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        curve: 'smooth'
+    },
+    xaxis: {
+        type: 'datetime',
+        categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+    },
+    tooltip: {
+        x: {
+            format: 'dd/MM/yy HH:mm'
+        },
+    },
+};
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+chart.render();

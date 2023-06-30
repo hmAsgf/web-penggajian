@@ -22,41 +22,47 @@ class payrollController
 
     function showPenggajian()
     {
-        $data = $this->penggajianModel->getAll($this->nipPegawai);
+        $data = $this->penggajianModel->getByNip($this->nipPegawai);
 
-        foreach ($data as $datum)
+        if($data)
         {
-            $tanggal = date('j F Y', strtotime($datum['tanggal']));
-        ?>
-            <tr>
-                <td align="center"><?php echo $tanggal; ?></td>
-                <td align="right"><?php echo $this->formatRupiah($datum['gaji_pokok']); ?></td>
-                <td align="right"><?php echo $this->formatRupiah($datum['pajak']); ?></td>
-                <td align="right"><?php echo $this->formatRupiah($datum['potongan']); ?></td>
-                <td align="right"><?php echo $this->formatRupiah($datum['gaji_lembur']); ?></td>
-                <td align="right"><?php echo $this->formatRupiah($datum['gaji_bersih']); ?></td>
-                <td align="center">Done</td>
-            </tr>
-        <?php
+            foreach ($data as $datum)
+            {
+                $tanggal = date('F Y', strtotime($datum['tanggal']));
+            ?>
+                <tr>
+                    <td align="center"><?php echo $tanggal; ?></td>
+                    <td align="right"><?php echo $this->formatRupiah($datum['gaji_pokok']); ?></td>
+                    <td align="right"><?php echo $this->formatRupiah($datum['pajak']); ?></td>
+                    <td align="right"><?php echo $this->formatRupiah($datum['potongan']); ?></td>
+                    <td align="right"><?php echo $this->formatRupiah($datum['gaji_lembur']); ?></td>
+                    <td align="right"><?php echo $this->formatRupiah($datum['gaji_bersih']); ?></td>
+                    <td align="center">Done</td>
+                </tr>
+            <?php
+            }
         }
     }
 
     function showPajak()
     {
-        $data = $this->penggajianModel->getAll($this->nipPegawai);
+        $data = $this->penggajianModel->getByNip($this->nipPegawai);
 
-        foreach ($data as $datum)
+        if($data)
         {
-            $tanggalLengkap = date('j F Y', strtotime($datum['tanggal']));
-            $tanggal = date('F Y', strtotime($datum['tanggal']));
-        ?>
-            <tr>
-                <td align="center"><?php echo $tanggal; ?></td>
-                <td align="right"><?php echo $this->formatRupiah($datum['pajak']); ?></td>
-                <td align="center"><?php echo $tanggalLengkap; ?></td>
-                <td align="center">Done</td>
-            </tr>
-        <?php
+            foreach ($data as $datum)
+            {
+                $tanggalLengkap = date('j F Y', strtotime($datum['tanggal']));
+                $tanggal = date('F Y', strtotime($datum['tanggal']));
+            ?>
+                <tr>
+                    <td align="center"><?php echo $tanggal; ?></td>
+                    <td align="right"><?php echo $this->formatRupiah($datum['pajak']); ?></td>
+                    <td align="center"><?php echo $tanggalLengkap; ?></td>
+                    <td align="center">Done</td>
+                </tr>
+            <?php
+            }
         }
     }
 }

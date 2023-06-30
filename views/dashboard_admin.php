@@ -6,22 +6,22 @@
 	<!-- ICON -->
 	<script src="https://unpkg.com/phosphor-icons"></script>
 	<!-- MY CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/style_payroll_karyawan.css">
+    <link rel="stylesheet" type="text/css" href="../css/style_dashboard_admin.css">
 
-	<title>Payroll</title>
+	<title>Dashboard</title>
 </head>
 <body>
-
 <?php
-  require_once "../controllers/payrollController.php";
-  require_once "../utils/Kalender.php";
-  require_once "../controllers/loginController.php";
-  $payrollC = new payrollController();
-  $kalender = new Kalender();
-  $loginC = new loginController();
-  $loginC->cekAuth();
-?>
+require_once "../controllers/loginAdminController.php";
+require_once "../utils/Kalender.php";
+require_once "../controllers/dashboardAdminController.php";
 
+$loginAdminC = new loginAdminController();
+$loginAdminC->cekAuth();
+
+$kalender = new Kalender();
+$dashAdminC = new dashboardAdminController();
+?>
 	<!-- start: SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
@@ -30,16 +30,16 @@
 
 		<ul class="sidebar__menu">
 			<li>
-				<a href="dashboard_karyawan.php" class="active"><i class="ph-house-fill"></i></a>
+				<a href="#" class="active"><i class="ph-house-fill"></i></a>
 			</li>
 			<li>
-				<a href="report_karyawan.php"><i class="ph-airplay-fill"></i></a>
+				<a href="input_admin.php"><i class="ph-airplay-fill"></i></a>
 			</li>
 			<li>
-				<a href="#"><i class="ph-clipboard-fill"></i></a>
+				<a href="payroll_admin.php"><i class="ph-clipboard-fill"></i></a>
 			</li>
 			<li>
-				<a href="logout.php" class="logout"><i class="ph-sign-out-fill"></i></a>
+				<a href="logout_admin.php" class="logout"><i class="ph-sign-out-fill"></i></a>
 			</li>
 		</ul>
 	</section>
@@ -54,7 +54,7 @@
 		<i class="ph-squares-four-fill toggle-sidebar"></i>
 		<a href="#" class="brand">
 			<i class="ph-flame-fill"></i>
-			Adminweb
+			ADMIN
 		</a>
 	</section>
 	<!-- end: SIDEBAR MOBILE -->
@@ -65,11 +65,11 @@
 		<!-- start: MAIN TOP -->
 		<div class="main__top">
 			<div class="main__top__title">
-				<h3>KARYAWAN</h3>
+				<h3>ADMIN</h3>
 				<ul class="breadcrumbs">
 					<li><a href="#">Home</a></li>
 					<li class="divider">/</li>
-					<li><a href="#" class="active">Payroll</a></li>
+					<li><a href="#" class="active">Dashboard</a></li>
 				</ul>
 			</div>
 			<ul class="main__top__menu">
@@ -217,63 +217,77 @@
 		<!-- start: MAIN BODY -->
 		<div class="main__body">
 			<ul class="main__body__box-info">
-        <li>
-          <h1>Annual Salary</h1>
-          <div class="table">
-            <table cellpadding="5px" style="width:100%;"">
-              <tr>
-                <th align="center" style="width:15%;">Periode</th>
-                <th align="center" style="width:15%;">Gaji Pokok</th>
-                <th align="center" style="width:15%;">Pajak</th>
-                <th align="center" style="width:15%;">Potongan</th>
-                <th align="center" style="width:15%;">Gaji Lembur</th>
-                <th align="center" style="width:15%;">Gaji Bersih<
-              </tr>
-              <?php $payrollC->showPenggajian(); ?>
-            </table>
-            </div>
-        </li>
-			</ul>
-			<div class="main__body2">
-				<ul class="main__body__box-info2">
-					<li>
-            <div class="cards3">
-              <div class="card3">
-                <div class="box3">
-                  <br>
-                  <h1>Taxes</h1>
-                  <br>
-                  <div class="table">
-                    <table style="width:97%", border="1px solid black">
-                      <tr>
-                        <th align="center" style="width:15%;">Periode</th>
-                        <th align="center" style="width:15%;">Total Pajak</th>
-                        <th align="center" style="width:15%;">Tanggal</th>
-                        <th align="center" style="width:15%;">Status</th>
-                      </tr>
-                      <?php $payrollC->showPajak(); ?>
-                      </table>
-                    </div>
+				<li>
+					<div class="box">
+					<h1>4.906.21</h1>
+					<h3>Earning</h3>
+					<a href=""><i>-5%</i></a>
                   </div>
-              </div>
-            </div>
-					</li>
-					<li>
-          <div class="calendar">
-            <div class="month-indicator">
-              <time datetime="<?php echo $kalender->tahubBulan; ?>"> <?php echo $kalender->bulanTahun; ?> </time>
-            </div>
-            <div class="day-of-week">
-              <?php $kalender->showDays(); ?>
-            </div>
-            <div class="date-grid">
-              <?php $kalender->showDate(); ?>
-            </div>
-            </div>
-          </div>
-					</li>
-				</ul>
-			</div>
+				</li>
+				<li>
+					<div class="box">
+					<h1>2.062.33</h1>
+					<h3>Net Pay</h3>
+					<a href=""><i>+5%</i></a>
+                  </div>
+				</li>
+				<li>
+					<div class="box">
+					<h1>2.832.27</h1>
+					<h3>Superanuation</h3>
+					<a href=""><i>-18%</i></a>
+                  </div>
+				</li>
+			</ul>
+    	</div>
+		<div class="main__body2">
+      <ul class="main__body__box-info2">
+        <li>
+		<h1>Financial Year Ending</h1>
+		<br>
+		<div class="table">
+			<table style="width:100%", border="1px solid black">
+				<tr>
+					<th align='center' style="width:15%;">Periode</th>
+					<th align='center' style="width:15%;">Total Gaji Pokok</th>
+					<th align='center' style="width:15%;">Total Pajak</th>
+					<th align='center' style="width:15%;">Total Potongan</th>
+					<th align='center' style="width:15%;">Total Gaji Lembur</th>
+					<th align='center' style="width:15%;">Total Gaji Bersih</th>
+				</tr>
+        <?php $dashAdminC->showPenggajian(); ?>
+			</table>
+        </li>
+        <li>
+		<h1>Taxes</h1>
+		<br>
+		<div class="table">
+			<table style="width:97%", border="1px solid black">
+				<tr>
+					<th align='center' style="width:15%;">Periode</th>
+					<th align='center' style="width:15%;">Total Pajak</th>
+					<th align='center' style="width:15%;">Tanggal</th>
+					<th align='center' style="width:15%;">Status</th>
+				</tr>
+        <?php $dashAdminC->showPajak(); ?>
+			</table>
+        </li>
+		<li>
+		<div class="calendar">
+		<div class="month-indicator">
+      <time datetime="<?php echo $kalender->tahubBulan; ?>">
+        <?php echo $kalender->bulanTahun; ?> 
+      </time>
+		</div>
+		<div class="day-of-week">
+      <?php $kalender->showDays(); ?>
+		</div>
+    <div class="date-grid">
+      <?php $kalender->showDate(); ?>
+    </div>
+	</div>
+		</li>
+      </ul>
 		</div>
 		<!-- end: MAIN BODY -->
 
@@ -281,6 +295,6 @@
 	<!-- end: MAIN -->
 	
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  <script src="../js/script.js"></script>
+	<script src="../js/script.js"></script>
 </body>
 </html>

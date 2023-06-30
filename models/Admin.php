@@ -4,19 +4,12 @@ require_once "KoneksiDB.php";
 
 class Admin extends KoneksiDB
 {
-    function showAll()
+    function getByUsername($username)
     {
-        $query = "SELECT * FROM admin";
+        $query = "SELECT * FROM admin WHERE username = '$username'";
         $result = mysqli_query($this->koneksi, $query);
 
-        if($result->num_rows >0)
-        {
-            while($arr = mysqli_fetch_array($result))
-            {
-                $data[]  = $arr;
-            }
-
-            return $data;
-        }
+        $data = mysqli_fetch_array($result);
+        return $data;
     }
 }

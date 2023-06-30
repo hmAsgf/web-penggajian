@@ -6,22 +6,22 @@
 	<!-- ICON -->
 	<script src="https://unpkg.com/phosphor-icons"></script>
 	<!-- MY CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/style_payroll_karyawan.css">
+    <link rel="stylesheet" type="text/css" href="../css/style_input_admin.css">
 
-	<title>Payroll</title>
+	<title>Input</title>
 </head>
 <body>
-
 <?php
-  require_once "../controllers/payrollController.php";
-  require_once "../utils/Kalender.php";
-  require_once "../controllers/loginController.php";
-  $payrollC = new payrollController();
-  $kalender = new Kalender();
-  $loginC = new loginController();
-  $loginC->cekAuth();
-?>
+require_once "../controllers/loginAdminController.php";
+require_once "../controllers/inputAdminController.php";
+require_once "../utils/Kalender.php";
 
+$loginAdminC = new loginAdminController();
+$loginAdminC->cekAuth();
+
+$inputAdminC = new inputAdminController();
+$kalender = new Kalender();
+?>
 	<!-- start: SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
@@ -30,16 +30,16 @@
 
 		<ul class="sidebar__menu">
 			<li>
-				<a href="dashboard_karyawan.php" class="active"><i class="ph-house-fill"></i></a>
+				<a href="dashboard_admin.php" class="active"><i class="ph-house-fill"></i></a>
 			</li>
 			<li>
-				<a href="report_karyawan.php"><i class="ph-airplay-fill"></i></a>
+				<a href="#"><i class="ph-airplay-fill"></i></a>
 			</li>
 			<li>
-				<a href="#"><i class="ph-clipboard-fill"></i></a>
+				<a href="payroll_admin.php"><i class="ph-clipboard-fill"></i></a>
 			</li>
 			<li>
-				<a href="logout.php" class="logout"><i class="ph-sign-out-fill"></i></a>
+				<a href="logout_admin.php" class="logout"><i class="ph-sign-out-fill"></i></a>
 			</li>
 		</ul>
 	</section>
@@ -54,7 +54,7 @@
 		<i class="ph-squares-four-fill toggle-sidebar"></i>
 		<a href="#" class="brand">
 			<i class="ph-flame-fill"></i>
-			Adminweb
+			ADMIN
 		</a>
 	</section>
 	<!-- end: SIDEBAR MOBILE -->
@@ -65,11 +65,11 @@
 		<!-- start: MAIN TOP -->
 		<div class="main__top">
 			<div class="main__top__title">
-				<h3>KARYAWAN</h3>
+				<h3>ADMIN</h3>
 				<ul class="breadcrumbs">
 					<li><a href="#">Home</a></li>
 					<li class="divider">/</li>
-					<li><a href="#" class="active">Payroll</a></li>
+					<li><a href="#" class="active">Input</a></li>
 				</ul>
 			</div>
 			<ul class="main__top__menu">
@@ -217,70 +217,157 @@
 		<!-- start: MAIN BODY -->
 		<div class="main__body">
 			<ul class="main__body__box-info">
-        <li>
-          <h1>Annual Salary</h1>
-          <div class="table">
-            <table cellpadding="5px" style="width:100%;"">
-              <tr>
-                <th align="center" style="width:15%;">Periode</th>
-                <th align="center" style="width:15%;">Gaji Pokok</th>
-                <th align="center" style="width:15%;">Pajak</th>
-                <th align="center" style="width:15%;">Potongan</th>
-                <th align="center" style="width:15%;">Gaji Lembur</th>
-                <th align="center" style="width:15%;">Gaji Bersih<
-              </tr>
-              <?php $payrollC->showPenggajian(); ?>
-            </table>
-            </div>
-        </li>
+				<li>
+        <form action="" method="post">
+        <tr>
+          <td><label>Nama</label></td>
+          <td>:</td>
+          <td>
+            <select name="nama" id="nama">
+              <option value="0">Pilih Nama Pegawai</option>
+              <?php $inputAdminC->showNamaAll(); ?>
+            </select>
+          </td>
+        </tr>
+        <br><br>
+        <tr>
+          <td><label>Tanggal</label></td>
+          <td>:</td>
+          <td><input type="date" id="tanggal" name="tanggal"value="<?php echo $kalender->today(); ?>"></td>
+        </tr>
+        <br><br>
+        <tr>
+          <td><label>Gaji Pokok</label></td>
+          <td>:</td>
+          <td><input type="number" id="gaji_pokok" name="gaji_pokok" readonly></input></td>
+        </tr>
+        <br><br>
+        <tr>
+          <td><label>Pajak</label></td>
+          <td>:</td>
+          <td><input type="number" id="pajak" name="pajak" readonly></input></td>
+        </tr>
+        <br><br>
+        <tr>
+          <td><label>Potongan</label></td>
+          <td>:</td>
+          <td><input type="number" id="potongan" name="potongan" readonly></input></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td><label>Gaji Lembur</label></td>
+            <td>:</td>
+            <td><input type="number" id="gaji_lembur" name="gaji_lembur" readonly></input></td>
+        </tr>
+        <br><br>
+        <tr>
+          <td><label>Gaji Bersih</label></td>
+          <td>:</td>
+          <td><input type="number" id="gaji_bersih" name="gaji_bersih" readonly></input></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td><label></label></td>
+            <td></td>
+            <td><input class="button" type="submit" name="input" value="Submit"></td>
+        </tr>
+        </form>
+				</li>
 			</ul>
-			<div class="main__body2">
-				<ul class="main__body__box-info2">
-					<li>
-            <div class="cards3">
-              <div class="card3">
-                <div class="box3">
-                  <br>
-                  <h1>Taxes</h1>
-                  <br>
-                  <div class="table">
-                    <table style="width:97%", border="1px solid black">
-                      <tr>
-                        <th align="center" style="width:15%;">Periode</th>
-                        <th align="center" style="width:15%;">Total Pajak</th>
-                        <th align="center" style="width:15%;">Tanggal</th>
-                        <th align="center" style="width:15%;">Status</th>
-                      </tr>
-                      <?php $payrollC->showPajak(); ?>
-                      </table>
-                    </div>
-                  </div>
-              </div>
-            </div>
-					</li>
-					<li>
-          <div class="calendar">
-            <div class="month-indicator">
-              <time datetime="<?php echo $kalender->tahubBulan; ?>"> <?php echo $kalender->bulanTahun; ?> </time>
-            </div>
-            <div class="day-of-week">
-              <?php $kalender->showDays(); ?>
-            </div>
-            <div class="date-grid">
-              <?php $kalender->showDate(); ?>
-            </div>
-            </div>
-          </div>
-					</li>
-				</ul>
-			</div>
-		</div>
+
+      <?php $inputAdminC->insert(); ?>
+    	</div>
 		<!-- end: MAIN BODY -->
 
 	</section>
 	<!-- end: MAIN -->
 	
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  <script src="../js/script.js"></script>
+	<script src="../js/script.js"></script>
+  <script>
+    const nama = document.getElementById('nama');
+    const tanggal = document.getElementById('tanggal');
+    const gajiPokok = document.getElementById('gaji_pokok');
+    const pajak = document.getElementById('pajak');
+    const potongan = document.getElementById('potongan');
+    const gajiLembur = document.getElementById('gaji_lembur');
+    const gajiBersih = document.getElementById('gaji_bersih');
+
+    let jabatan = <?php echo json_encode($inputAdminC->getJabatan()); ?>;
+    let potonganTotal = <?php echo json_encode($inputAdminC->getPotongan()); ?>;
+    let lemburTotal = <?php echo json_encode($inputAdminC->getLembur()); ?>;
+
+    function proses()
+    {
+      let jabatanObj = null;
+      let potonganObj = null;
+      let lemburObj = null;
+
+      let nip = nama.value;
+      let v_tanggal = new Date(tanggal.value);
+      let bulan = v_tanggal.getMonth() + 1;
+      let tahun = v_tanggal.getFullYear();
+
+      jabatan.forEach(jbt =>
+      {
+        if(jbt.nip == nip)
+        {
+          jabatanObj = jbt;
+        }
+      });
+
+      potonganTotal.forEach(ptgn =>
+      {
+        if(ptgn.nip == nip && ptgn.bulan == bulan && ptgn.tahun == tahun)
+        {
+          potonganObj = ptgn;
+        }
+      });
+
+      lemburTotal.forEach(lmbr =>
+      {
+        if(lmbr.nip == nip && lmbr.bulan == bulan && lmbr.tahun == tahun)
+        {
+          lemburObj = lmbr;
+        }
+      });
+
+      if(jabatanObj)
+      {
+        gajiPokok.value = parseInt(jabatanObj.gaji_pokok);
+        pajak.value = parseInt(jabatanObj.pajak);
+      }
+      else
+      {
+        gajiPokok.value = 0;
+        pajak.value = 0;
+      }
+
+      if(potonganObj)
+      {
+        potongan.value = parseInt(potonganObj.total_potongan);
+      }
+      else
+      {
+        potongan.value = 0;
+      }
+
+      if(lemburObj)
+      {
+        gajiLembur.value = parseInt(lemburObj.total_lembur);
+      }
+      else
+      {
+        gajiLembur.value = 0;
+      }
+
+      gajiBersih.value = parseInt(gajiPokok.value) - parseInt(pajak.value) - parseInt(potongan.value) + parseInt(gajiLembur.value);
+    }
+
+    nama.addEventListener('change', proses);
+    tanggal.addEventListener('change', proses);
+    window.addEventListener('load', proses);
+
+  </script>
 </body>
 </html>

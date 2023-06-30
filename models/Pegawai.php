@@ -12,4 +12,38 @@ class Pegawai extends KoneksiDB
         $data = mysqli_fetch_array($result);
         return $data;
     }
+
+    function getByNama($nama)
+    {
+        $query = "SELECT * FROM pegawai WHERE nama = '$nama'";
+        $result = mysqli_query($this->koneksi, $query);
+
+        $data = mysqli_fetch_array($result);
+        return $data;
+    }
+
+    function getByNip($nip)
+    {
+        $query = "SELECT * FROM pegawai WHERE nip = $nip";
+        $result = mysqli_query($this->koneksi, $query);
+
+        $data = mysqli_fetch_array($result);
+        return $data;
+    }
+
+    function getAll()
+    {
+        $query = "SELECT * FROM pegawai";
+        $result = mysqli_query($this->koneksi, $query);
+
+        if($result->num_rows > 0)
+        {
+            while($arr = mysqli_fetch_array($result))
+            {
+                $data[] = $arr;
+            }
+
+            return $data;
+        }
+    }
 }
