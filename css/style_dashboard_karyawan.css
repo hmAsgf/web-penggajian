@@ -454,7 +454,7 @@ body {
 	color: var(--grey);
 }
 
-button {
+.button {
 	position: absolute;
 	top: 78%;
 	left: 85%;
@@ -482,6 +482,10 @@ button {
 	/* Gaya Saat Diklik */
 	background-color: #003e80;
   }
+
+th, td {
+	padding: 0px 10px;
+}
 
 /* end: MAIN BODY */
 

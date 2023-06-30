@@ -20,4 +20,9 @@ class Potongan extends KoneksiDB
             return $data;
         }
     }
+
+    function insert($nip)
+    {
+        
+    }
 }

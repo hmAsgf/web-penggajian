@@ -36,7 +36,7 @@ $loginC->cekAuth();
 				<a href="payroll_karyawan.php"><i class="ph-clipboard-fill"></i></a>
 			</li>
 			<li>
-				<a href="login_karyawan.php" class="logout"><i class="ph-sign-out-fill"></i></a>
+				<a href="logout.php" class="logout"><i class="ph-sign-out-fill"></i></a>
 			</li>
 		</ul>
 	</section>

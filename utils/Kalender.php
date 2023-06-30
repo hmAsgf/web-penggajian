@@ -18,6 +18,7 @@ class Kalender
         $this->tahun_sekarang = date('Y');
         $this->jumlah_hari = cal_days_in_month(CAL_GREGORIAN, $this->bulan_sekarang, $this->tahun_sekarang);
         $this->hari_awal = date('N', strtotime($this->tahun_sekarang . '-' . $this->bulan_sekarang . '-01'));
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     function showDays()
@@ -25,6 +26,14 @@ class Kalender
         foreach($this->nama_hari as $hari)
         {
             echo "<div>".$hari."</div>";
+        }
+    }
+
+    function dashboardShowDays()
+    {
+        foreach($this->nama_hari as $hari)
+        {
+            echo "<th>&emsp;$hari</th>";
         }
     }
 
@@ -50,5 +59,26 @@ class Kalender
     {
         $tanggal_sekarang = date('Y-m-d');
         return $tanggal_sekarang;
+    }
+
+    function tanggalTujuhHari()
+    {
+        $today = date('Y-m-d');
+        $n = date('N', strtotime($today));
+    
+        for($i = 1; $i < $n; $i++)
+        {
+            $x = $n - $i;
+            $tanggal = date('d', strtotime("-$x day", strtotime($today)));
+            $tanggal_hari = date('l', strtotime($tanggal));
+            echo "<td>&emsp;$tanggal</td>";
+        }
+    
+        for($i = 0; $i < 8-$n; $i++)
+        {
+            $tanggal = date('d', strtotime("+$i day", strtotime($today)));
+            $tanggal_hari = date('l', strtotime($tanggal));
+            echo "<td>&emsp;$tanggal</td>";
+        }
     }
 }

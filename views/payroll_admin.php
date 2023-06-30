@@ -37,7 +37,7 @@ $payrollAdminC = new payrollAdminController();
 				<a href="#"><i class="ph-clipboard-fill"></i></a>
 			</li>
 			<li>
-				<a href="login_karyawan.php" class="logout"><i class="ph-sign-out-fill"></i></a>
+				<a href="logout_admin.php" class="logout"><i class="ph-sign-out-fill"></i></a>
 			</li>
 		</ul>
 	</section>

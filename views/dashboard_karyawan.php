@@ -11,6 +11,18 @@
 	<title>Dashboard</title>
 </head>
 <body>
+<?php
+require_once "../controllers/loginController.php";
+require_once "../utils/Kalender.php";
+require_once "../controllers/dashboardKaryawanController.php";
+
+$loginC = new loginController();
+$loginC->cekAuth();
+
+$kalender = new Kalender();
+
+$dashKaryawanC = new dashboardKaryawanController();
+?>
 
 	<!-- start: SIDEBAR -->
 	<section id="sidebar">
@@ -29,7 +41,7 @@
 				<a href="payroll_karyawan.php"><i class="ph-clipboard-fill"></i></a>
 			</li>
 			<li>
-				<a href="login_karyawan.php" class="logout"><i class="ph-sign-out-fill"></i></a>
+				<a href="logout.php" class="logout"><i class="ph-sign-out-fill"></i></a>
 			</li>
 		</ul>
 	</section>
@@ -208,73 +220,19 @@
 		<div class="main__body">
 			<ul class="main__body__box-info">
 				<li>
-					<div class="head">
-                        <h3>Appointments</h3>
-                    </div>
-                    <br>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>&emsp;Sun</th>
-                                    <th>&emsp; Mon</th>
-                                    <th>&emsp;Tues</th>
-                                    <th>&emsp;Wed</th>
-                                    <th>&emsp;Thu</th>
-                                    <th>&emsp;Fri</th>
-                                    <th>&emsp;Sat</th>
-                                </tr>
-                                <tr>
-                                    <th>&emsp;18</th>
-                                    <th>&emsp;19</th>
-                                    <th>&emsp;20</th>
-                                    <th>&emsp;21</th>
-                                    <th>&emsp;22</th>
-                                    <th>&emsp;23</th>
-                                    <th>&emsp;24</th>
-                                </tr>
-                            </thead>
-                        </table>
-                        <br>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>09.15 AM</th>
-                                    <th>&emsp;&emsp;Michael</th>
-                                    <br>
-                                </tr>
-                            </thead>
-                        </table>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>1 h 10 min</th>
-                                    <th>&emsp;&emsp;Telah Melakukan Check in</th>
-                                </tr>
-                            </thead>
-                        </table>
-				</li>
-				<li>
 					<div class="head-absen">
                         <h3>Annual Leaves</h3>
                         <br><br>
                         </div>
                         <table>
-                            <thead>
                                 <tr>
-                                    <th>5</th>
-                                    <th>&emsp;&emsp;&emsp;&emsp;&emsp;15</th>
-                                    <th>&emsp;&emsp;&emsp;20</th>
+									<?php $dashKaryawanC->showAbsensi(); ?>
                                 </tr>
-                            </thead>
-                        </table>
-                        <table>
-                            <thead>
                                 <tr>
-                                    <th>Mount</th>
-                                    <th>&emsp;&emsp;Day</th>
-                                    <th>&emsp;&emsp;Total</th>
+                                    <th align="center">Hadir</th>
+                                    <th align="center">Alpha</th>
+                                    <th align="center">Total</th>
                                 </tr>
-                            </thead>
                         </table>
 				</li>
 				<li>
@@ -310,61 +268,53 @@
 							<table>
 								<thead>
 									<tr>
-										<th>&emsp;Sun</th>
-										<th>&emsp; Mon</th>
-										<th>&emsp;Tues</th>
-										<th>&emsp;Wed</th>
-										<th>&emsp;Thu</th>
-										<th>&emsp;Fri</th>
-										<th>&emsp;Sat</th>
+										<?php $kalender->dashboardShowDays(); ?>
 									</tr>
 									<tr>
-										<th>&emsp;18</th>
-										<th>&emsp;19</th>
-										<th>&emsp;20</th>
-										<th>&emsp;21</th>
-										<th>&emsp;22</th>
-										<th>&emsp;23</th>
-										<th>&emsp;24</th>
-									</tr>
+										<?php $kalender->tanggalTujuhHari(); ?>
+								</tr>
 								</thead>
 							</table>
 							<br>
 							<table>
 								<thead>
 									<tr>
-										<th>09.15 AM</th>
-										<th>&emsp;&emsp;Michael</th>
 										<br>
+										<th id="datang"></th>
+										<th><?php $dashKaryawanC->getNama(); ?></th>
 									</tr>
-								</thead>
-							</table>
-							<table>
-								<thead>
 									<tr>
-										<th>1 h 10 min</th>
-										<th>&emsp;&emsp;Telah Melakukan Check in</th>
+										<th id="detail-1"></th>
+										<th id="detail-2"></th>
 									</tr>
 								</thead>
 							</table>
 					</li>
 					<li>
-						<table>
-							<tr>
-								<th>Check In/Out</th>
-							</tr>
-                        </table>
+						<div class="head">
+							<h3>Check In/Out</h3>
+						</div>
 						<br><br><br>
-						<table>
-							<tr>
-								<th>01:23:49 <br> Checked in at 06.36 AM</th>
-							</tr>
-						</table>
-                        <button>CHECK IN</button>
+						<form method="post" onsubmit="return confirm('Apakah Anda yakin ingin melakukan Check In/Out?')">
+							<table>
+								<tr>
+									<th id="jam"></th>
+								</tr>
+								<tr>
+									<th id="status"></th>
+									<th>
+										<input type="submit" class="button" id="check" name="checkIn" value="CHECK IN">
+									</th>
+								</tr>
+							</table>
+						</form>
+
+						<?php $dashKaryawanC->absen(); ?>
 					</li>
 				</ul>
 			</div>
 		</div>
+
 		<!-- end: MAIN BODY -->
 
 	</section>
@@ -372,5 +322,93 @@
 	
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 	<script src="../js/script.js"></script>
+	<script>
+		function convertTimeFormat(time)
+		{
+			var timeParts = time.split(':'); // Memisahkan string waktu menjadi array
+			var hour = timeParts[0]; // Mengambil jam
+			var minute = timeParts[1]; // Mengambil menit
+			return hour + ':' + minute; // Menggabungkan jam dan menit dalam format H:i
+		}
+
+		function updateTime() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+
+            // Menambahkan nol di depan angka jam, menit, dan detik jika perlu
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            // Menampilkan jam secara realtime di elemen dengan id "jam"
+            document.getElementById("jam").innerHTML = hours + ":" + minutes + ":" + seconds;
+        }
+
+		function cekStatus()
+		{
+			const status = document.getElementById('status');
+			const datang = document.getElementById('datang');
+			const detail_1 = document.getElementById('detail-1');
+			const detail_2 = document.getElementById('detail-2');
+			let data = <?php echo json_encode($dashKaryawanC->showJamDatangNow()); ?>;
+
+			let waktuSekarang = new Date(); // Waktu saat ini
+
+			if(data)
+			{
+				let jamDatang = data.jam_datang;
+
+				// Mendapatkan jam dan menit dari waktu saat ini
+				let jamSekarang = waktuSekarang.getHours();
+				let menitSekarang = waktuSekarang.getMinutes();
+
+				// Memisahkan jam dan menit dari jam check-in
+				let jamCheckInParts = jamDatang.split(':');
+				let jamCheckInJam = parseInt(jamCheckInParts[0], 10);
+				let jamCheckInMenit = parseInt(jamCheckInParts[1], 10);
+
+				// Menghitung selisih waktu antara jam saat ini dan jam check-in
+				let selisihJam = jamSekarang - jamCheckInJam;
+				let selisihMenit = menitSekarang - jamCheckInMenit;
+
+				status.innerHTML = "Checked In At " + convertTimeFormat(data.jam_datang);
+				datang.innerHTML = convertTimeFormat(data.jam_datang);
+				detail_1.innerHTML = selisihJam + " Jam " + selisihMenit + " Menit";
+				detail_2.innerHTML = "Telah Melakukan Check In"
+			}
+			else
+			{
+				status.innerHTML = "Checked In At - ";
+				datang.innerHTML = " - ";
+				detail_1.innerHTML = " - ";
+				detail_2.innerHTML = "Belum Melakukan Check In";
+			}
+		}
+		
+		function changeButton()
+		{
+			const check = document.getElementById('check');
+			let cekAbsen = <?php echo json_encode($dashKaryawanC->cekAbsen()); ?>;
+
+			if(cekAbsen == 0)
+			{
+				check.name = "checkIn";
+				check.value = "CHECK IN";
+			}
+			else
+			{
+				check.name = "checkOut";
+				check.value = "CHECK OUT";
+			}
+			
+			cekStatus();
+		}
+
+        // Memanggil fungsi updateTime setiap detik
+        setInterval(updateTime, 1000);
+		changeButton();
+	</script>
 </body>
 </html>
