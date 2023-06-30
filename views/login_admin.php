@@ -25,14 +25,11 @@
                 <label class="user-password" style="padding-top: 13px;">&nbsp; Password</label>
                 <input id="user-password" class="form-content" type="password" name="password" required/>
                 <div class="form-border"></div>
-                    <a href="">
-                        <legend class="forgot-pass">Forget your password?</legend>
-                    </a>
-                    <input class="submit-btn" type="submit" name="submit" value="LOGIN">
+                    <input onclick= "login()" class="submit-btn" type="submit" name="submit" value="LOGIN">
             </form>
         </div>
     </div>
-
+        
     <script src="../js/login.js"></script>
 </body>
 </html>

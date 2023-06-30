@@ -17,6 +17,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 a {
 	text-decoration: none;
+
 }
 
 :root {
@@ -40,6 +41,12 @@ i[class^="ph"] {
 body {
 	background: var(--light);
 }
+
+
+
+
+
+
 
 /* start: SIDEBAR */
 #sidebar {
@@ -123,6 +130,12 @@ body {
 }
 /* end: SIDEBAR */
 
+
+
+
+
+
+
 /* start: SIDEBAR MOBILE */
 #sidebar-mobile {
 	width: 100%;
@@ -152,6 +165,12 @@ body {
 	color: var(--blue);
 }
 /* end: SIDEBAR MOBILE */
+
+
+
+
+
+
 
 /* start: MAIN */
 #main {
@@ -483,10 +502,12 @@ button {
 	background-color: #003e80;
   }
 
+/* TABLE */
 
-  table, th, td{
+table, th, td{
 	border: 1px solid white;
 	border-collapse: collapse;
+	padding: 5px;
 }
 
 tr:nth-child(even), th:nth-child(even){
@@ -506,7 +527,8 @@ tr{
 }
 
 tr:hover{background-color: #D6EEEE;}
-  
+
+/* TABLE */
 
 /* KALENDAR */
 :root {
@@ -563,11 +585,6 @@ text-align: center;
 margin-top: 0.5em;
 }
 
-/* Positioning the first day */
-.date-grid button:first-child {
-grid-column: 6;
-}
-
 .date-grid button {
 position: relative;
 border: 0;
@@ -595,6 +612,7 @@ color: var(--teal-900);
 /* end: MAIN BODY */
 
 /* end: MAIN */
+
 
 /* start: BREAKPOINTS */
 @media screen and (max-width: 576px) {

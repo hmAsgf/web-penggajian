@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
     <link rel="stylesheet" href="../css/style_login.css">
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <?php
@@ -16,7 +16,7 @@ $loginC = new loginController();
     <div class="card">
         <div class="card-content">
             <div class="card-title">
-                <h3>Lets's Get Started</h3>
+                <h3>KARYAWAN</h3>
             </div>
             <div class="card-title2">
                 <h4>Sign in for work absence</h4>
@@ -29,10 +29,7 @@ $loginC = new loginController();
                 <label class="user-password" style="padding-top: 13px;">Password</label>
                 <input id="user-password" class="form-content" type="password" name="password" required/>
                 <div class="form-border"></div>
-                    <a href="">
-                        <legend class="forgot-pass">Forget your password?</legend>
-                    </a>
-                    <input class="submit-btn" type="submit" name="submit" value="LOGIN">
+                    <input onclick="login()" class="submit-btn" type="submit" name="submit" value="LOGIN">
             </form>
         </div>
     </div>
