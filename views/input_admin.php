@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- ICON -->
+	<script src="https://unpkg.com/phosphor-icons"></script>
+	<!-- MY CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/style_input_admin.css">
 
-<!-- Boxicons -->
-<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-<!-- My CSS -->
-<link rel="stylesheet" type="text/css" href="../css/style_input_admin.css">
-
-<title>Input Admin</title>
+	<title>Input</title>
 </head>
 <body>
 <?php
@@ -23,139 +22,268 @@ $loginAdminC->cekAuth();
 $inputAdminC = new inputAdminController();
 $kalender = new Kalender();
 ?>
-  <!-- SIDEBAR -->
-  <section id="sidebar">
-    <a href="#" class="brand">
-      <i class='bx bxs-smile'></i>
-      <span class="text">ADMIN</span>
-    </a>
-    <ul class="side-menu top">
-      <li class="active">
-        <a href="dashboard_admin.php">
-          <i class='bx bxs-dashboard' ></i>
-          <span class="text">Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bxs-shopping-bag-alt' ></i>
-          <span class="text">Input</span>
-        </a>
-      </li>
-      <li>
-        <a href="payroll_admin.php">
-          <i class='bx bxs-doughnut-chart' ></i>
-          <span class="text">Payroll</span>
-        </a>
-      </li>
-    <ul class="side-menu">
-      <li>
-        <a href="#">
-          <i class='bx bxs-cog' ></i>
-          <span class="text">Settings</span>
-        </a>
-      </li>
-      <li>
-        <a href="logout_admin.php" class="logout">
-          <i class='bx bxs-log-out-circle' ></i>
-          <span class="text">Logout</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-  <!-- SIDEBAR -->
+	<!-- start: SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class="ph-flame-fill"></i>
+		</a>
 
+		<ul class="sidebar__menu">
+			<li>
+				<a href="dashboard_admin.php" class="active"><i class="ph-house-fill"></i></a>
+			</li>
+			<li>
+				<a href="#"><i class="ph-airplay-fill"></i></a>
+			</li>
+			<li>
+				<a href="payroll_admin.php"><i class="ph-clipboard-fill"></i></a>
+			</li>
+			<li>
+				<a href="login_karyawan.php" class="logout"><i class="ph-sign-out-fill"></i></a>
+			</li>
+		</ul>
+	</section>
 
+	<!-- start: SIDEBAR OVERLAY -->
+	<div class="sidebar-overlay"></div>
+	<!-- end: SIDEBAR OVERLAY -->
+	<!-- end: SIDEBAR -->
 
-  <!-- CONTENT -->
-  <div id="content">
-      <!-- NAVBAR -->
-      <nav>
-          <i class='bx bx-menu' ></i>
-          <a href="#" class="nav-link">Categories</a>
-          <form action="#">
-              <div class="form-input">
-                  <input type="search" placeholder="Search...">
-                  <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
-              </div>
-          </form>
-          <input type="checkbox" id="switch-mode" hidden>
-          <label for="switch-mode" class="switch-mode"></label>
-          <a href="#" class="notification">
-              <i class='bx bxs-bell' ></i>
-              <span class="num">8</span>
-          </a>
-          <a href="#" class="profile">
-              <!-- <img src="img/people.png"> -->
-          </a>
-      </nav>
-      <!-- NAVBAR -->
+	<!-- start: SIDEBAR MOBILE -->
+	<section id="sidebar-mobile">
+		<i class="ph-squares-four-fill toggle-sidebar"></i>
+		<a href="#" class="brand">
+			<i class="ph-flame-fill"></i>
+			ADMIN
+		</a>
+	</section>
+	<!-- end: SIDEBAR MOBILE -->
 
-      <!-- MAIN -->
-      <div class="content-input">
-        <div class="cards">
-              <div class="card">
-                <div class="box">
-                  <form action="" method="post">
-                    <table>
-                      <tr>
-                        <td><label>Nama</label></td>
-                        <td>:</td>
-                        <td>
-                          <select name="nama" id="nama">
-                            <option value="0">Pilih Nama Pegawai</option>
-                            <?php $inputAdminC->showNamaAll(); ?>
-                          </select>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><label>Tanggal</label></td>
-                        <td>:</td>
-                        <td><input type="date" id="tanggal" name="tanggal"value="<?php echo $kalender->today(); ?>"></td>
-                      </tr>
-                      <tr>
-                        <td><label>Gaji Pokok</label></td>
-                        <td>:</td>
-                        <td><input type="number" id="gaji_pokok" name="gaji_pokok" readonly></input></td>
-                      </tr>
-                      <tr>
-                        <td><label>Pajak</label></td>
-                        <td>:</td>
-                        <td><input type="number" id="pajak" name="pajak" readonly></input></td>
-                      </tr>
-                      <tr>
-                        <td><label>Potongan</label></td>
-                        <td>:</td>
-                        <td><input type="number" id="potongan" name="potongan" readonly></input></td>
-                      </tr>
-                      <tr>
-                        <td><label>Gaji Lembur</label></td>
-                        <td>:</td>
-                        <td><input type="number" id="gaji_lembur" name="gaji_lembur" readonly></input></td>
-                      </tr>
-                      <tr>
-                        <td><label>Gaji Bersih</label></td>
-                        <td>:</td>
-                        <td><input type="number" id="gaji_bersih" name="gaji_bersih" readonly></input></td>
-                      </tr>
-                      <tr>
-                        <td><label></label></td>
-                        <td></td>
-                        <td><input type="submit" name="input" value="Submit"></td>
-                      </tr>
-                    </table>
-                  </form>
-                  
-                  <?php $inputAdminC->insert(); ?>
-                </div>
-              </div>
-              </div>
-        </div>
-      </div>
+	<!-- start: MAIN -->
+	<section id="main">
+		
+		<!-- start: MAIN TOP -->
+		<div class="main__top">
+			<div class="main__top__title">
+				<h3>ADMIN</h3>
+				<ul class="breadcrumbs">
+					<li><a href="#">Home</a></li>
+					<li class="divider">/</li>
+					<li><a href="#" class="active">Input</a></li>
+				</ul>
+			</div>
+			<ul class="main__top__menu">
+				<li class="search">
+					<a href="#">
+						<i class="ph-magnifying-glass"></i>
+					</a>
+					<div class="main__dropdown">
+						<form action="#">
+							<input type="text" name="" placeholder="Search">
+						</form>
+						<span>Recent Search</span>
+						<ul class="recent-search">
+							<li>
+								<a href="#">
+									<h5>Keyword</h5>
+									<p>Lorem ipsum dolor sit amet consectetur...</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<h5>Keyword</h5>
+									<p>Lorem ipsum dolor sit amet consectetur...</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<h5>Keyword</h5>
+									<p>Lorem ipsum dolor sit amet consectetur...</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<h5>Keyword</h5>
+									<p>Lorem ipsum dolor sit amet consectetur...</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<h5>Keyword</h5>
+									<p>Lorem ipsum dolor sit amet consectetur...</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<h5>Keyword</h5>
+									<p>Lorem ipsum dolor sit amet consectetur...</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<h5>Keyword</h5>
+									<p>Lorem ipsum dolor sit amet consectetur...</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="notification">
+					<a href="#">
+						<i class="ph-bell"></i>
+					</a>
+					<div class="main__dropdown">
+						<div class="notification__top">
+							<h4>Notifications</h4>
+							<span>6</span>
+						</div>
+						<ul class="notification__item">
+							<li>
+								<a href="#">
+									<div class="left">
+										<h5>Notification title</h5>
+										<p>Lorem ipsum dolor sit amet...</p>
+									</div>
+									<span>3 hours</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<div class="left">
+										<h5>Notification title</h5>
+										<p>Lorem ipsum dolor sit amet...</p>
+									</div>
+									<span>3 hours</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<div class="left">
+										<h5>Notification title</h5>
+										<p>Lorem ipsum dolor sit amet...</p>
+									</div>
+									<span>3 hours</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<div class="left">
+										<h5>Notification title</h5>
+										<p>Lorem ipsum dolor sit amet...</p>
+									</div>
+									<span>3 hours</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<div class="left">
+										<h5>Notification title</h5>
+										<p>Lorem ipsum dolor sit amet...</p>
+									</div>
+									<span>3 hours</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="inbox">
+					<a href="#">
+						<i class="ph-chat-circle-dots"></i>
+					</a>
+					<span></span>
+				</li>
+				<li class="profile">
+					<a href="#">
+						<img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+					</a>
+					<div class="main__dropdown">
+						<div class="profile__top">
+							<img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+							<div class="name">
+								<h5>John Doe</h5>
+								<p>Web Developer</p>
+							</div>
+						</div>
+						<ul class="profile__menu">
+							<li><a href="#"><i class="ph-user-circle-fill"></i> Edit profile</a></li>
+							<li><a href="#"><i class="ph-gear-fill"></i> Settings</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- end: MAIN TOP -->
 
-      <!-- MAIN -->
-  </div>
-  <script src="../js/script.js"></script>
+		<!-- start: MAIN BODY -->
+		<div class="main__body">
+			<ul class="main__body__box-info">
+				<li>
+        <form action="" method="post">
+        <tr>
+          <td><label>Nama</label></td>
+          <td>:</td>
+          <td>
+            <select name="nama" id="nama">
+              <option value="0">Pilih Nama Pegawai</option>
+              <?php $inputAdminC->showNamaAll(); ?>
+            </select>
+          </td>
+        </tr>
+        <br><br>
+        <tr>
+          <td><label>Tanggal</label></td>
+          <td>:</td>
+          <td><input type="date" id="tanggal" name="tanggal"value="<?php echo $kalender->today(); ?>"></td>
+        </tr>
+        <br><br>
+        <tr>
+          <td><label>Gaji Pokok</label></td>
+          <td>:</td>
+          <td><input type="number" id="gaji_pokok" name="gaji_pokok" readonly></input></td>
+        </tr>
+        <br><br>
+        <tr>
+          <td><label>Pajak</label></td>
+          <td>:</td>
+          <td><input type="number" id="pajak" name="pajak" readonly></input></td>
+        </tr>
+        <br><br>
+        <tr>
+          <td><label>Potongan</label></td>
+          <td>:</td>
+          <td><input type="number" id="potongan" name="potongan" readonly></input></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td><label>Gaji Lembur</label></td>
+            <td>:</td>
+            <td><input type="number" id="gaji_lembur" name="gaji_lembur" readonly></input></td>
+        </tr>
+        <br><br>
+        <tr>
+          <td><label>Gaji Bersih</label></td>
+          <td>:</td>
+          <td><input type="number" id="gaji_bersih" name="gaji_bersih" readonly></input></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td><label></label></td>
+            <td></td>
+            <td><input class="button" type="submit" name="input" value="Submit"></td>
+        </tr>
+        </form>
+				</li>
+			</ul>
+
+      <?php $inputAdminC->insert(); ?>
+    	</div>
+		<!-- end: MAIN BODY -->
+
+	</section>
+	<!-- end: MAIN -->
+	
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+	<script src="../js/script.js"></script>
   <script>
     const nama = document.getElementById('nama');
     const tanggal = document.getElementById('tanggal');

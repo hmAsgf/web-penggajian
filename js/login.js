@@ -10,3 +10,13 @@ btn_show.addEventListener("click", function(){
         btn_show.remove("hide");;
     }
 })
+
+function login(){
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 5000
+      })
+}
