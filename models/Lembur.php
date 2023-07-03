@@ -37,13 +37,13 @@ class Lembur extends KoneksiDB
         $checkIn = strtotime($dataAbsen['jam_datang']);
         $checkOut = strtotime($dataAbsen['jam_pulang']);
         $selisih = $checkOut - $checkIn;
-        $jamKerja = floor($selisih / 3600);
+        $jamKerja = $selisih / 3600;
 
         if ($jamKerja > 6)
         {
             $jamLembur = $jamKerja - 6;
             $lemburFormat = gmdate('H:i:s', $jamLembur * 3600);
-            $nominal = ($dataGaji['gaji_pokok'] * 0.01) * $jamLembur;
+            $nominal = intval($dataGaji['gaji_pokok'] * 0.01 * $jamLembur);
 
             $query = "INSERT INTO lembur VALUES ('', $nip, '$tanggal', '$lemburFormat', $nominal)";
             $result = mysqli_query($this->koneksi, $query);
