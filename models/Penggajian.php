@@ -22,9 +22,12 @@ class Penggajian extends KoneksiDB
 
     function getPenggajianAll()
     {
-        $query = "SELECT tanggal, SUM(gaji_pokok) AS total_gaji_pokok, SUM(pajak) AS total_pajak, 
+        $tahun = date('Y');
+        $query = "SELECT tanggal, MONTH(tanggal) AS bulan, YEAR(tanggal) AS tahun,
+                    SUM(gaji_pokok) AS total_gaji_pokok, SUM(pajak) AS total_pajak, 
                     SUM(potongan) AS total_potongan, SUM(gaji_lembur) AS total_gaji_lembur,
-                    SUM(gaji_bersih) AS total_gaji_bersih FROM penggajian GROUP BY tanggal";
+                    SUM(gaji_bersih) AS total_gaji_bersih FROM penggajian WHERE YEAR(tanggal) = $tahun
+                    GROUP BY bulan, tahun ORDER BY tanggal DESC";
         $result = mysqli_query($this->koneksi, $query);
         
         if($result->num_rows > 0)
@@ -40,7 +43,7 @@ class Penggajian extends KoneksiDB
 
     function getAll()
     {
-        $query = "SELECT * FROM penggajian JOIN pegawai ON penggajian.nip = pegawai.nip ORDER BY id DESC";
+        $query = "SELECT * FROM penggajian JOIN pegawai ON penggajian.nip = pegawai.nip ORDER BY tanggal DESC";
         $result = mysqli_query($this->koneksi, $query);
         
         if($result->num_rows > 0)
@@ -56,7 +59,10 @@ class Penggajian extends KoneksiDB
 
     function getPajakAll()
     {
-        $query = "SELECT tanggal, SUM(pajak) AS total_pajak FROM penggajian GROUP BY tanggal";
+        $tahun = date('Y');
+        $query = "SELECT tanggal, MONTH(tanggal) AS bulan, YEAR(tanggal) AS tahun,
+                    SUM(pajak) AS total_pajak FROM penggajian WHERE YEAR(tanggal) = $tahun
+                    GROUP BY bulan, tahun ORDER BY tanggal DESC";
         $result = mysqli_query($this->koneksi, $query);
         
         if($result->num_rows > 0)

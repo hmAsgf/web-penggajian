@@ -358,25 +358,39 @@ $dashKaryawanC = new dashboardKaryawanController();
 
 			if(data)
 			{
-				let jamDatang = data.jam_datang;
 
-				// Mendapatkan jam dan menit dari waktu saat ini
-				let jamSekarang = waktuSekarang.getHours();
-				let menitSekarang = waktuSekarang.getMinutes();
+				if(data.jam_pulang)
+				{
+					let jamPulang = data.jam_pulang;
+					let jamSekarang = waktuSekarang.getHours();
+					let menitSekarang = waktuSekarang.getMinutes();
+					let jamCheckOutParts = jamPulang.split(':');
+					let jamCheckOutJam = parseInt(jamCheckOutParts[0], 10);
+					let jamCheckOutMenit = parseInt(jamCheckOutParts[1], 10);
+					let selisihJam = jamSekarang - jamCheckOutJam;
+					let selisihMenit = menitSekarang - jamCheckOutMenit;
 
-				// Memisahkan jam dan menit dari jam check-in
-				let jamCheckInParts = jamDatang.split(':');
-				let jamCheckInJam = parseInt(jamCheckInParts[0], 10);
-				let jamCheckInMenit = parseInt(jamCheckInParts[1], 10);
+					status.innerHTML = "Checked Out At " + convertTimeFormat(data.jam_pulang);
+					datang.innerHTML = convertTimeFormat(data.jam_pulang);
+					detail_1.innerHTML = selisihJam + " Jam " + selisihMenit + " Menit";
+					detail_2.innerHTML = "Telah Melakukan Check Out"
+				}
+				else
+				{
+					let jamDatang = data.jam_datang;
+					let jamSekarang = waktuSekarang.getHours();
+					let menitSekarang = waktuSekarang.getMinutes();
+					let jamCheckInParts = jamDatang.split(':');
+					let jamCheckInJam = parseInt(jamCheckInParts[0], 10);
+					let jamCheckInMenit = parseInt(jamCheckInParts[1], 10);
+					let selisihJam = jamSekarang - jamCheckInJam;
+					let selisihMenit = menitSekarang - jamCheckInMenit;
 
-				// Menghitung selisih waktu antara jam saat ini dan jam check-in
-				let selisihJam = jamSekarang - jamCheckInJam;
-				let selisihMenit = menitSekarang - jamCheckInMenit;
-
-				status.innerHTML = "Checked In At " + convertTimeFormat(data.jam_datang);
-				datang.innerHTML = convertTimeFormat(data.jam_datang);
-				detail_1.innerHTML = selisihJam + " Jam " + selisihMenit + " Menit";
-				detail_2.innerHTML = "Telah Melakukan Check In"
+					status.innerHTML = "Checked In At " + convertTimeFormat(data.jam_datang);
+					datang.innerHTML = convertTimeFormat(data.jam_datang);
+					detail_1.innerHTML = selisihJam + " Jam " + selisihMenit + " Menit";
+					detail_2.innerHTML = "Telah Melakukan Check In"
+				}
 			}
 			else
 			{
