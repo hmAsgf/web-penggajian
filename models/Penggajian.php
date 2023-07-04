@@ -6,7 +6,7 @@ class Penggajian extends KoneksiDB
 {
     function getByNip($nip)
     {
-        $query = "SELECT * FROM penggajian WHERE nip = $nip";
+        $query = "SELECT * FROM penggajian WHERE nip = $nip ORDER BY tanggal DESC";
         $result = mysqli_query($this->koneksi, $query);
         
         if($result->num_rows > 0)
@@ -105,20 +105,22 @@ class Penggajian extends KoneksiDB
 
     function getPenggajianByTanggal($nip, $bulan, $tahun)
     {
-        $query = "SELECT * FROM penggajian WHERE nip = $nip AND ";
+        $query = "SELECT * FROM penggajian WHERE nip = $nip";
 
         if($bulan != 0 && $tahun != 0)
         {
-            $query .= "MONTH(tanggal) = $bulan AND YEAR(tanggal) = $tahun";
+            $query .= " AND MONTH(tanggal) = $bulan AND YEAR(tanggal) = $tahun";
         }
         elseif($bulan != 0)
         {
-            $query .= "MONTH(tanggal) = $bulan";
+            $query .= " AND MONTH(tanggal) = $bulan";
         }
         elseif ($tahun != 0)
         {
-            $query .= "YEAR(tanggal) = $tahun";
+            $query .= " AND YEAR(tanggal) = $tahun";
         }
+
+        $query .= " ORDER BY tanggal DESC";
 
         $result = mysqli_query($this->koneksi, $query);
 
