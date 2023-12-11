@@ -15,7 +15,7 @@ function login(){
     Swal.fire({
         position: 'top-end',
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'Anda Berhasil Login',
         showConfirmButton: false,
         timer: 5000
       })
